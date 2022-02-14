@@ -49,11 +49,11 @@ header#header {
 
 #main_menu ul li {
     display: inline-block;
-    margin: 0 20 px;
+    margin: 0 20px;
 }
 
 #main_menu ul li a {
-    color: #232323;
+    color: #828282;
     text-decoration: none;
 }
 
