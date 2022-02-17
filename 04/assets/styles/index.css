@@ -9,12 +9,25 @@ html, body {
     height: 100%;
 }
 
+body {
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    color: #070707;
+    font-size: 18px;
+    line-height: 25px;
+}
+
 a, 
 button, 
 input[type="button"],
 input[type="reset"], 
 input[type="submit"] {
     transition: all .2s ease;
+}
+
+img {
+    width: 100%;
+    vertical-align: top;
 }
 
 .container {
