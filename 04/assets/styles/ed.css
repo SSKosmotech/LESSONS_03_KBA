@@ -9,15 +9,61 @@ html, body {
     height: 100%;
 }
 
+/* html {
+    font-size: 10px;
+
+h1 {
+    font-size: 1.75em;
+    font-size: 28px;
+}
+
+p {
+    font-size: 3em;
+}
+
+p span {
+    font-size: 0.5em;
+}
+
+p span i {
+    font-size: 1.5em;
+}
+} */
+
 .container {
-    width: 50%;
+    width: 50vw ;
     margin: 0 auto;
     border: 2px solid #000;
-    height: 400px;
+    height: 50vh;
+    font-size: 2rem;
+}
+
+.a4 {
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm;
 }
 
 .inner {
-    width: 50%;
+    /* width: calc(100% - -200px); */
+    width: calc(50% + +100px);
     border: 2px solid red;
     height: 100%;
 }
+
+h1 {
+    font-size: 1.75rem;
+}
+
+p {
+    font-size: 3rem;
+}
+
+p span {
+    font-size: 0.5rem;
+}
+
+p span i {
+    font-size: 1.5rem;
+}
+
