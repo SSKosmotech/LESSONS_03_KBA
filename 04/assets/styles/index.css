@@ -214,3 +214,63 @@ a:hover {
     background-color: #fff;
     color: #333;
 }
+
+.wrap_2 {
+    padding: 50px;
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    width: 200px;
+    height: 350px;
+    padding: 100 20px 20px;
+    border-radius: 10px;
+    background-color: lightyellow;
+    margin: 0 20px;
+    transition: all .2s ease;
+}
+
+.wrap_2:hover .card:not(:hover) {
+    filter: blur(10px);
+    opacity: .8;
+}
+
+.card:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #333;
+}
+
+.card p::first-line {
+    font-weight: 700;
+}
+
+/* .card h3+p::first-letter {
+    color: #f00;
+    font-size: 24px;
+} */
+
+/* .card p:nth-child(2):first-letter {
+    color: #f00;
+    font-size: 24px;
+} */
+
+/* А якщо після h3 - хтось додасть наприклад img - то тільки цей з трьох - буде працювати */
+.card p:first-of-type:first-letter {
+    color: #f00;
+    font-size: 24px;
+}
+
+
+table {
+    with: 400px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-collapse: collapse;
+}
+
+table td, th {
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    padding: 3px 10px;
+}
