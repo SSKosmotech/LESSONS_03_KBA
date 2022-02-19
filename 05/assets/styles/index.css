@@ -68,3 +68,51 @@ label::after {
     color: rgb(28, 77, 169);
 }
 
+.wrapper {
+    background-color: #fff;
+    padding: 50px;
+    text-align: center;
+}
+
+.icon {
+    width: 63px;
+    height: 63px;
+    border-radius: 50%;
+    border: 1px solid #1275b9;
+    background-color: #1275b9;
+    background-image: url("../images/sprite.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 0 30px;
+    transition: all .2 ease;
+}
+
+.icon:hover {
+    background-color: #fff;
+}
+
+
+.icon-tablet {
+    background-position: 19px 15px;
+}
+
+.icon-cog {
+    background-position: -81px 15px;
+}
+
+.icon-dash {
+    background-position: -190px 15px;
+}
+
+.icon-tablet:hover {
+    background-position: 19px -53px;
+}
+
+.icon-cog:hover {
+    background-position: -81px -53px;
+}
+
+.icon-dash:hover {
+    background-position: -190px -53px;
+}
+
