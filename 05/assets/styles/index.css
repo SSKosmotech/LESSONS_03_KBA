@@ -42,10 +42,9 @@ label::after {
     height: 1px;
     background-color: #efefef;
     display: none;
-    margin-top: -9px;
+    margin-top: -10px;
     z-index: 1;
     position: relative;
-    transform: rotate(-1deg);
 }
 
 .list {
