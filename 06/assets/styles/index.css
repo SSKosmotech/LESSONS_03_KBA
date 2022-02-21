@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a, button, input, textarea, select {
+    outline: 0 none;
+}
+
+input:focus {
+    border: 3px solid blue;
+}
+
+input {
+    height: 60px;
+    border-radius: 20px;
+}
+
+a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: aquamarine;
+}
+
+a:focus {
+    color: bisque;
+}
+
+.container {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+    outline: inset 2px #000;
+    /* border: 1px solid transparent; */
+    padding-top: 1px;
+}
+
+.container .card:first-child {
+    margin-top: 49px;
+}
+
+/* h1 {
+    margin-bottom: 28px;
+}
+
+p {
+    margin-bottom: 20px 0;
+} 
+
+span {
+    display: inline-block;
+    padding: 20px;
+    border: 2px solid blue;
+    margin: 50px;
+    width: 400px;
+    height: 200px;
+}
+
+*/
+
+.card {
+    /* display: inline; */
+    padding: 20px;
+    border: 2px solid red;
+    margin: 50px;
+    width: 400px;
+    text-align: center;
+}
+
+
+.second {
+    margin-top: 200px;
+}
+
+.pic {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    background-color: #efefef;
+}   
+
+h3 {
+    margin: 30px 0;
+}
+
+p {
+    margin: 30px 0;
+}
+
+.card *:last-child {
+    margin-bottom: 0;
+}
