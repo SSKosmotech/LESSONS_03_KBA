@@ -235,7 +235,7 @@ a:hover {
     display: inline-block;
     width: 200px;
     height: 350px;
-    padding: 100 20px 20px;
+    padding: 100px 20px 20px;
     border-radius: 10px;
     background-color: lightyellow;
     margin: 0 20px;
@@ -274,7 +274,7 @@ a:hover {
 
 
 table {
-    with: 400px;
+    width: 400px;
     border-top: 1px solid #000;
     border-right: 1px solid #000;
     border-collapse: collapse;
