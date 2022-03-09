@@ -95,6 +95,12 @@ html, body {
     height: 100%;
 }
 
+.page_wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
 
 header {
     /* height: 80px; */
@@ -142,12 +148,7 @@ footer {
     background-color:rgb(231, 207, 26)
 }
 
-.page_wrap {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    height: 100%;
-}
+
 
 
 .flex {
