@@ -164,8 +164,8 @@ footer {
 
 .picture {
     width: 60%;
-    height: 300px;
-    background-color: aliceblue;
+    height: 100px;
+    background-color: rgb(233, 82, 157);
 }
 
 .content {
