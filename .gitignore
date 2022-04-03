@@ -1,3 +1,4 @@
 desctop.ini
 additional
-vscode
+.vscode
+.vscode/*
