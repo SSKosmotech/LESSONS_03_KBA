@@ -1,0 +1,34 @@
+$text_color: #232323;
+$font_size: 1.1rem;
+$base_fz: 16;
+
+@mixin fz($size_in_px) {
+  font-size:($size_in_px/$base_fz)+rem;
+}
+
+@import 'parts/reset';
+
+body {
+    // color: $text_color;
+    // @include fz(18);
+    // border: 1px solid red;
+    background: url(../images/icon-megafon.svg) left top/300px auto no-repeat;
+}
+
+.container {
+    width: 1600px;
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1px solid blue;
+}
+
+svg:hover {
+    path {
+        fill: red;
+    }
+}
+
+.insta_icon, .tw_icon {
+    width: 100px;
+    height: 100px;
+}
