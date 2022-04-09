@@ -23,6 +23,8 @@ body {
 
 img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   vertical-align: top;
 }
 
@@ -221,4 +223,19 @@ main {
 
 .hamb_menu {
   display: none;
+}
+
+.pic {
+  width: 300px;
+}
+
+.pic_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.first_section {
+  padding-top: 80px;
+  padding-bottom: 100px;
 }
