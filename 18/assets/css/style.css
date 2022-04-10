@@ -1,0 +1,230 @@
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+.hamburger:hover {
+  opacity: 0.7;
+}
+.hamburger.is-active:hover {
+  opacity: 0.7;
+}
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #000;
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block;
+}
+.hamburger-inner::before {
+  top: -10px;
+}
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+/*
+ * Arrow
+ */
+.hamburger--arrow.is-active .hamburger-inner::before {
+  transform: translate3d(-8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+}
+.hamburger--arrow.is-active .hamburger-inner::after {
+  transform: translate3d(-8px, 0, 0) rotate(45deg) scale(0.7, 1);
+}
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: calc(12px + (26 - 14) * ((100vw - 375px) / (1920 - 375)));
+  line-height: calc(18px + (32 - 16) * ((100vw - 375px) / (1920 - 375)));
+}
+body.lock {
+  overflow: hidden;
+}
+
+a {
+  transition: all 0.2s ease;
+}
+
+header {
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: lightgreen;
+  z-index: 10;
+}
+header .container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo a {
+  font-size: 30px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#main_menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#main_menu ul li + li {
+  margin-left: 30px;
+}
+#main_menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 15px;
+  background-color: transparent;
+}
+#main_menu ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hamb_menu {
+  display: none;
+}
+
+#side_block {
+  width: 300px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: lightyellow;
+  padding: 20px;
+  height: 100vh;
+  z-index: 12;
+  transform: translateX(-300px);
+  transition: all 0.2s ease;
+}
+#side_block.open {
+  transform: translateX(0);
+}
+
+#page_overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 11;
+}
+#page_overlay.open {
+  display: block;
+}
+
+main {
+  height: calc(100vh - 90px);
+  margin-top: 60px;
+}
+
+footer {
+  height: 30px;
+  background-color: #444;
+}
+
+.container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  border: 2px solid blue;
+}
+
+.flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid tomato;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.first_section {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: #dbdbdb;
+}
+
+.pic {
+  width: 31%;
+  margin-bottom: 30px;
+}
+
+.pic_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.features_section {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}

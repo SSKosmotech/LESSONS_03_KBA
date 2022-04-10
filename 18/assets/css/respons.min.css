@@ -1,0 +1,1 @@
+@media screen and (max-width:640px){#main_menu{display:none}.hamb_menu{display:block}.flex{flex-wrap:wrap}.flex>div{width:100%}.pic{width:49%}}@media screen and (max-width:480px){.pic{width:100%}.flex>div{width:80%;margin-bottom:30px}}@media screen and (max-width:320px){.flex>div.pic{display:none}}
