@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/fonts_style.min.css">
+    <link rel="stylesheet" href="assets/styles/index.min.css">
+    <link rel="stylesheet" href="assets/styles/respons.min.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <header id="header">
+            <div class="container flex">
+                <div class="logo_header">
+                    <img src="assets/images/logo_header.svg" alt="Header Logo for CSS Grid Layout">
+                </div>
+                <nav>
+                    <ul class="main_menu">
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>     
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <div class="container">
+                <h1>Shooting Stars</h1>
+                <p>
+                    Hello, I’m Bakhtiyar Sattarov,<br>
+                    <span>product designer</span> with experience<br>
+                    in studios and startups
+                </p>
+                <p>
+                        Design is about progress 
+                </p>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="pic_wrapper">
+                        <div class="pic item1">
+                            <img src="assets/images/css_grid_01.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item2">
+                            <img src="assets/images/css_grid_02.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item3">
+                            <img src="assets/images/css_grid_03.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item4">
+                            <img src="assets/images/css_grid_04.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item5">
+                            <img src="assets/images/css_grid_05.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item6">
+                            <img src="assets/images/css_grid_06.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item7">
+                            <img src="assets/images/css_grid_07.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item8">
+                            <img src="assets/images/css_grid_08.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item9">
+                            <img src="assets/images/css_grid_09.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item10">
+                            <img src="assets/images/css_grid_10.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item11">
+                            <img src="assets/images/css_grid_11.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                        <div class="pic item12">
+                            <img src="assets/images/css_grid_12.jpg" alt="CSS Grid 01 foto">    
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                <div class="text_wrapper">
+                    
+                </div>
+                </div>
+            </section>
+
+            <ul>
+                <li>Lorem ipsum dolor sit amet1.</li>
+                <li>Lorem ipsum dolor sit amet2.</li>
+                <li>Lorem ipsum dolor sit amet3.</li>
+                <li>Lorem ipsum dolor sit amet4.</li>
+                <li>Lorem ipsum dolor sit amet5.</li>
+                <li>Lorem ipsum dolor sit amet6.</li>
+            </ul>
+
+
+        </main>
+
+        <footer>
+            <div class="container flex">
+
+                <div class="logo_footer">
+                    <img src="assets/images/logo_header.svg" alt="Header Logo for CSS Grid Layout">
+                </div>
+
+                <div class="wrap_footer_navigation flex">
+                
+                    <nav>
+                        <ul class="footer_menu">
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>     
+                    </nav>
+
+                    <nav>
+                        <ul class="socials_menu">
+                            <li><a href="#" rel="nofollow, noreferrer" target="_blank" title="Dribbble">
+                                    <i class="icon icon-ball_svg"></i>
+                                </a>
+                            </li>
+                            <li><a href="#" rel="nofollow, noreferrer" target="_blank" title="Instagram">
+                                    <i class="icon icon-instagram_svg"></i>
+                                </a>
+                            </li>
+                            <li><a href="#" rel="nofollow, noreferrer" target="_blank" title="Twitter">
+                                <i class="icon icon-twitter_svg"></i>
+                                </a>
+                            </li>
+                        </ul>     
+                    </nav>
+
+                </div>
+            </div>
+        </footer>
+
+<script src="assets/plugins/imagesloaded.pkgd.min.js">
+
+</script>
+
+<script>
+            /**
+ * Set appropriate spanning to any masonry item
+ *
+ * Get different properties we already set for the masonry, calculate 
+ * height or spanning for any cell of the masonry grid based on its 
+ * content-wrapper's height, the (row) gap of the grid, and the size 
+ * of the implicit row tracks.
+ *
+ * @param item Object A brick/tile/cell inside the masonry
+ */
+function resizeMasonryItem(item){
+  /* Get the grid object, its row-gap, and the size of its implicit rows */
+  var grid = document.getElementsByClassName('pic_wrapper')[0],
+      rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
+      rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+
+  /*
+   * Spanning for any brick = S
+   * Grid's row-gap = G
+   * Size of grid's implicitly create row-track = R
+   * Height of item content = H
+   * Net height of the item = H1 = H + G
+   * Net height of the implicit row-track = T = G + R
+   * S = H1 / T
+   */
+  var rowSpan = Math.ceil((item.querySelector('img').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+
+  /* Set the spanning as calculated above (S) */
+  item.style.gridRowEnd = 'span '+rowSpan;
+
+  /* Make the images take all the available space in the cell/item */
+  item.querySelector('img').style.height = rowSpan * 10 + "px";
+}
+
+/**
+ * Apply spanning to all the masonry items
+ *
+ * Loop through all the items and apply the spanning to them using 
+ * `resizeMasonryItem()` function.
+ *
+ * @uses resizeMasonryItem
+ */
+function resizeAllMasonryItems(){
+  // Get all item class objects in one list
+  var allItems = document.getElementsByClassName('pic');
+
+  /*
+   * Loop through the above list and execute the spanning function to
+   * each list-item (i.e. each masonry item)
+   */
+  for(var i=0;i>allItems.length;i++){
+    resizeMasonryItem(allItems[i]);
+  }
+}
+
+/**
+ * Resize the items when all the images inside the masonry grid 
+ * finish loading. This will ensure that all the content inside our
+ * masonry items is visible.
+ *
+ * @uses ImagesLoaded
+ * @uses resizeMasonryItem
+ */
+function waitForImages() {
+  var allItems = document.getElementsByClassName('pic);
+  for(var i=0;i<allItems.length;i++){
+    imagesLoaded( allItems[i], function(instance) {
+      var item = instance.elements[0];
+      resizeMasonryItem(item);
+    } );
+  }
+}
+
+/* Resize all the grid items on the load and resize events */
+var masonryEvents = ['load', 'resize'];
+masonryEvents.forEach( function(event) {
+  window.addEventListener(event, resizeAllMasonryItems);
+} );
+
+/* Do a resize once more when all the images finish loading */
+waitForImages();
+
+</script>
+
+</div>
+</body>
+</html>
