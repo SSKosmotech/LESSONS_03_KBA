@@ -75,17 +75,17 @@ html, body {
     }
     .awards_service {
         margin-bottom: 30px;
+        text-align: center;
     }
 }
 
 @media screen and (max-width: 500px) {
     .avard_services_item {
-        // 
-        padding-top: 1px;
-        // 
+        padding: 30px 0;
     }
     .award_item {
         grid-template-columns: 2fr 1fr;
+        grid-template-rows: 30px 1fr;
         margin-bottom: 45px;
     }
     .award_title {
