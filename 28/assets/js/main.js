@@ -296,3 +296,17 @@
 //     acceptLang = 'eb_GB'
 // }
 
+
+function checkNumber() {
+    const num = parseInt(prompt('Enter number'))
+    let rez;
+    if(num < 0) {
+        rez = '-';
+    } else if(num > 0) {
+        rez = '+';
+    } else if(num == 0) {
+        rez = '0';
+    }
+    alert(rez);
+}
+

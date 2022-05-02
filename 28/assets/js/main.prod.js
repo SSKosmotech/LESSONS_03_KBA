@@ -1,1 +1,1 @@
-"use strict";
+"use strict";function checkNumber(){var r,e=parseInt(prompt("Enter number"));e<0?r="-":0<e?r="+":0==e&&(r="0"),alert(r)}
