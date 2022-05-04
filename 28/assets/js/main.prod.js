@@ -1,1 +1,1 @@
-"use strict";function checkNumber(){var r,e=parseInt(prompt("Enter number"));e<0?r="-":0<e?r="+":0==e&&(r="0"),alert(r)}
+"use strict";function checkNumber(){var t,r=parseInt(prompt("Enter number"));r<0?t="-":0<r?t="+":0==r&&(t="0"),alert(t)}function whatAge(){var t=parseInt(prompt("Введи, скільки тобі років:"));0<=t&&t<=120?alert("Все вірно, тобі в діапазоні від 0-120 років включно: ".concat(t," років")):(t<0||120<t)&&alert("Помилка, тобі не в діапазоні 0-120 років")}

@@ -297,24 +297,161 @@
 // }
 
 
-function checkNumber() {
-    const num = parseInt(prompt('Enter number'))
-    let rez;
-    if(num < 0) {
-        rez = '-';
-    } else if(num > 0) {
-        rez = '+';
-    } else if(num == 0) {
-        rez = '0';
+// function checkNumber() {
+//     const num = parseInt(prompt('Enter number'))
+//     let rez;
+//     if(num < 0) {
+//         rez = '-';
+//     } else if(num > 0) {
+//         rez = '+';
+//     } else if(num == 0) {
+//         rez = '0';
+//     }
+//     alert(rez);
+// }
+
+
+// function whatAge() {
+//     const age = parseInt(prompt('Введи, скільки тобі років:'));
+//     if (age >= 0 && age <= 120) {
+//         alert(`Все вірно, тобі в діапазоні від 0-120 років включно: ${age} років`);
+//     } else if(age < 0 || age > 120) {
+//         alert(`Помилка, тобі не в діапазоні 0-120 років`);
+//     }
+// }
+
+// <<============================================================================>>
+
+// 2 && 0 && 3 => 0
+// if(true && false && true)
+
+// 2 || 0 || 3 => 2
+// 2 && 0 || 3  => 3
+
+// 2 && 3 || 4 && 0 && 1
+
+
+// function checkTime() {
+//     const hours = prompt('Enter hours');
+//     const minutes = parseInt(prompt('Enter minutes'));
+//     const sec = parseInt(prompt('Enter seconds'));
+//     let errText = '';
+//     if( hours === '') {
+//         errText += 'Enter hours. ';
+//     } else {
+//         hours = parseInt(hours);
+//     }
+//     if(isNaN(hours)) {
+//         errText = errText + 'Use numbers for hours value. ';
+//     }
+//     if(hours < 0 || hours > 24) {
+//         errText = errText + 'Enter hours value [0..23]. ';
+//     }
+//     // для хвилин і секунд те ж саме; Для хвилин: < 0 || > 60
+//     if(errText !==''){
+//         alert(errText);
+//     } else {
+//         alert('Time is correct: '+hours+':'+minutes+':'+sec);
+//     }
+// }
+
+
+// for (let i=0;i<10;i++) {
+//     console.log(i);
+// }
+
+// for (let i=1;i<=10;i++) {
+//     console.log(i);
+// }
+
+// for (let i=2;i<=10;i+=2) {
+//     console.log(i);
+// }
+
+
+// for (let i=1;i<=10;i+=2) {
+//     console.log(i);
+// }
+
+// for (let i=1000;i<=1010;i+=2) {
+//     console.log(i);
+// }
+
+// const year = new Date().getFullYear();
+// for (let i=year;i>(year - 60);i--) {
+//     console.log(i);
+// }
+
+// let i = 0;
+// while(i<10){
+//     console.log(i);
+//     i++;
+// }
+
+// let answer = true;
+// while(answer===true){
+//     answer = confirm('Question?');
+// }
+
+// let answer = false;
+// do {
+//     answer = confirm('Question?');
+// } while(answer === true)
+
+
+// for (let i=1;i<=10;i++) {
+//     console.log(i);
+// }
+
+
+function task1() {
+    const num = parseInt(document.getElementById('task_1_number').value);
+    let rez = '';
+    let i = 0;
+    while (i<num) {
+        rez += '# ' 
+        i++;
     }
-    alert(rez);
+    document.getElementById('task_1_result').innerText = rez;
 }
 
-function whatAge() {
-    const age = parseInt(prompt('Введи, скільки тобі років:'));
-    if (age >= 0 && age <= 120) {
-        alert(`Все вірно, тобі в діапазоні від 0-120 років включно: ${age} років`);
-    } else if(age < 0 || age > 120) {
-        alert(`Помилка, тобі не в діапазоні 0-120 років`);
+function task2() {
+    const num = parseInt(document.getElementById('task_2_number').value);
+    let rez = '';
+    let i = num;
+    while (i>=0) {
+        rez += i+'' 
+        i--;
     }
+    document.getElementById('task_2_result').innerText = rez;
 }
+
+function task4() {
+    const num1 = parseInt(document.getElementById('task_4_number1').value);
+    const num2 = parseInt(document.getElementById('task_4_number2').value);
+    let rez = '';
+    const minNum = num1<num2 ? num1 : num2;
+    let i = 1;
+    while (i<=minNum/2){
+        if (num1%i==0 && num2%i==0) {
+            rez += i+', ';
+        }
+        i++;
+    }
+    if(minNum===num1) {
+        if(num2%num1==0) {
+            rez += num1;
+        }
+    } else {
+        if(num1%num2==0) {
+            rez += num2; 
+        }
+    }
+    document.getElementById('task_4_result').innerText = rez;
+}
+
+
+//5! = 1 * 2 * 3 * 4 * 5 //факторіал
+
+// const _21 = true;
+// const _22 = false;
