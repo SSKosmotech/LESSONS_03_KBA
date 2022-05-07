@@ -758,6 +758,7 @@ function ask() {
     alert('END');
 }
 
+
 let r = 0;
 for (let i=2; i<=9;i++){
     for (let j=1; j<=10; j++) {
@@ -956,5 +957,148 @@ const nowDate = `${addZero(2)}/${addZero(4)}/2022 ${addZero(4)}:${addZero(23)}`;
 //     console.log();
 // }
 
+/*
+* ЧИСТА ФУНКЦІЯ
+* 1. Приймати аргументи
+* 2. При тих самих аргументах завжди однаковий результат
+* 3. Не повинна мати побічних ефектів (не повинна викликати в собі побічну функцію), console.log() - це і є використання побічної функції !!!
+* 
+* 
+* 
+* ФУНКЦІЇ ВИЩОГО ПОРЯДКУ (або, чи)
+* 1. Функція приймає в якості аргументу іншу функцію
+* 2. Функція повертає в якості результату виконання іншуфнкцію
+* 
+*/
 
-//чиста функція
+// function sum(a, b, callback) {
+//     console.log(arguments);
+//     if(a===b){
+//         callback();
+//     } else {
+//         return a + b;
+//     }
+// }
+
+// function sumCallback () {
+//     alert('Lorem');
+// }
+
+// sum(1,2,sumCallback);
+
+
+// function sum(a, b, callback) {
+//     console.log(arguments);
+//     if(a===b){
+//         callback(a+b);
+//     } else {
+//         return a + b;
+//     }
+// }
+
+// function sumCallback(x) {
+//     alert('Lorem'+x);
+// }
+
+// sum(1,2,sumCallback);
+
+
+// sum (1,1,(x)=>{
+//     alert('Lorem'+x);
+// })
+
+
+// function sumAny(number) {
+//     return function sumNumber(a){
+//         return number + a;
+//     }
+// }
+
+// Код вище, переписаний як стрілкова функція
+function sumAny(number) {
+    return a => number + a;
+}
+
+const sumTen = sumAny(10);
+const sum100 = sumAny(100);
+const sum20 = sumAny(20);
+
+
+console.log(sumTen(2));
+console.log(sum100(35));
+console.log(sum20(20));
+console.log(sum100(56));
+
+
+function getAndCheck(inputId='') {
+    // debugger;
+    let number = document.getElementById(inputId).value;
+    if(number!=='') {
+        number = parseInt(number);
+        if(!isNaN(number)){
+            return number;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+function showResult(result, whereId) {
+    document.getElementById(whereId).innerHTML = result;
+}
+
+function isNumberPerfect(n){
+    let sum = 0;
+    for(let i = 1; i<n; i++) {
+        if(n%i===0){
+            sum += i;
+        }
+    }
+        return sum===n;
+}
+
+// function task111() {
+//     // debugger;
+//     let num = 0,
+//     rez = '';
+//     if(getAndCheck('task_111_number')!==false){
+//         num = getAndCheck('task_111_number');
+//     } else {
+//         return false;
+//     }
+//     if(isNumberPerfect(num)){
+//         rez = `Число ${num} є досконалим`;
+//     } else {
+//         rez = `Число ${num} не є досконалим`;
+//     }
+//     showResult(rez, 'task_111_result');
+// }
+
+// function task111() {
+    function task111(lang = 'ua') {
+
+        // debugger;
+        let num = 0,
+        rez = '';
+        if(getAndCheck('task_111_number')!==false){
+            num = getAndCheck('task_111_number');
+        } else {
+            return false;
+        }
+        if(isNumberPerfect(num)){
+            if(lang === 'ua') {
+                rez = `Число ${num} є досконалим`;
+            } else {
+                rez = `Number ${num} is perfect`;
+            }
+        } else {
+            if(lang === 'ua') {
+                rez = `Число ${num} не є досконалим`;
+            } else {
+                rez = `Number ${num} is NOT perfect`;
+            }        
+        }
+        showResult(rez, 'task_111_result');
+    }
