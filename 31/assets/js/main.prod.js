@@ -1,0 +1,1 @@
+"use strict";var number1=5,number2=7,number21=12,number22=45;
