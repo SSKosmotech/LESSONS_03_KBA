@@ -1759,6 +1759,75 @@ let arr4 = arr3.join('; ');
 console.log(arr4);
 
 
+/*
+const html = `
+<div>
+    <span>${rez.ch}</span>
+    <span>${rez.zn}</span>
+<.div>
+`;
+
+document.getElementById('task_9_result').innerHTML = html;
+*/
+
+
+//Деструктуризація обєкту або масиву "..."
+console.log('<<============Деструктуризація обєкту або масиву "..."===================>>');
+
+const user = {
+    name: 'Bob',
+    gender: 'male',
+    level: 'user',
+    qwe: 'asd',
+    zxc: 'zxc',
+};
+
+
+// function checkUser(name, gender, level){
+function checkUser(user){
+    const {name , gender, level, age = 0} = user;
+    console.log(name);
+    console.log(gender);
+    console.log(level);
+    console.log(age);
+
+}
+
+// checkUser(user.name, user.gender, user.level);
+checkUser(user);
+
+
+console.log('<<===============================>>');
+
+const arr22 = [1,2,3,4,5,6];
+
+const [a,b,c,d] = arr22;
+
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+
+
+
+//Спред оператор (коли не знаю, скільки аргументів буде в функції)
+console.log('<<=============Спред оператор (коли не знаю, скільки аргументів буде в функції)==================>>');
+
+function sumAll(text, action, ...numbers){
+    console.log(action);
+    let summ = 0;
+    for(let i = 0; i<numbers.length; i++){
+        summ += numbers[i];
+    }
+    return text+' '+summ;
+}
+
+console.log(sumAll('Summ:',87,2,3,4));
+
+
+// import {Lpopup, Lmap} from Leaflet;
+
+
 
 
 
