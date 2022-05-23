@@ -1655,10 +1655,10 @@
 // // let arr2 = new Array(5, 2);
 // console.log(arr2);
 
-console.log('<<============arr==============>>');
+// console.log('<<============arr==============>>');
 
-const arr = [1,2,3,4,5,6,7,8,9];
-console.log(arr);
+// const arr = [1,2,3,4,5,6,7,8,9];
+// console.log(arr);
 
 
 // console.log(arr);
@@ -1723,40 +1723,40 @@ console.log(arr);
 // });
 
 
-console.log('<<============map==============>>');
-// let arResult = arr.map(el => el + 10); //map - повертає новий масив - так зручніше!!
-let arResult = arr.map((el, i) => el + 10 + i); //індекс
-console.log(arResult);
+// console.log('<<============map==============>>');
+// // let arResult = arr.map(el => el + 10); //map - повертає новий масив - так зручніше!!
+// let arResult = arr.map((el, i) => el + 10 + i); //індекс
+// console.log(arResult);
 
-console.log('<<============filter==============>>');
-let arEven = arr.filter(el => el%2===0)
-// let arEven = arr.filter(el => el%2!==0)
-console.log(arEven);
+// console.log('<<============filter==============>>');
+// let arEven = arr.filter(el => el%2===0)
+// // let arEven = arr.filter(el => el%2!==0)
+// console.log(arEven);
 
-const arr2 = [4,78,22,8,42,1,98,100,45];
-// arr2.sort((a, b)=>{
-//     // return a - b;
-//     return b - a; 
-// });
-console.log('<<============sort==============>>');
-arr2.sort((a, b)=>a - b); //скорочений варіант коду зверху
+// const arr2 = [4,78,22,8,42,1,98,100,45];
+// // arr2.sort((a, b)=>{
+// //     // return a - b;
+// //     return b - a; 
+// // });
+// console.log('<<============sort==============>>');
+// arr2.sort((a, b)=>a - b); //скорочений варіант коду зверху
 
-console.log(arr2);
-console.log('<<============home==============>>');
-console.log('<<============home==============>>');
-console.log('<<============home==============>>');
+// console.log(arr2);
+// console.log('<<============home==============>>');
+// console.log('<<============home==============>>');
+// console.log('<<============home==============>>');
 
-console.log(arr);
-const test = arr.reverse();
-console.log(test);
-console.log(arr);
+// console.log(arr);
+// const test = arr.reverse();
+// console.log(test);
+// console.log(arr);
 
-let names = 'Вася, Петя, Маша';
-console.log(names);
-let arr3 = names.split(', ');
-console.log(arr3);
-let arr4 = arr3.join('; ');
-console.log(arr4);
+// let names = 'Вася, Петя, Маша';
+// console.log(names);
+// let arr3 = names.split(', ');
+// console.log(arr3);
+// let arr4 = arr3.join('; ');
+// console.log(arr4);
 
 
 /*
@@ -1772,69 +1772,232 @@ document.getElementById('task_9_result').innerHTML = html;
 
 
 //Деструктуризація обєкту або масиву "..."
-console.log('<<============Деструктуризація обєкту або масиву "..."===================>>');
+// console.log('<<============Деструктуризація обєкту або масиву "..."===================>>');
 
-const user = {
-    name: 'Bob',
-    gender: 'male',
-    level: 'user',
-    qwe: 'asd',
-    zxc: 'zxc',
-};
-
-
-// function checkUser(name, gender, level){
-function checkUser(user){
-    const {name , gender, level, age = 0} = user;
-    console.log(name);
-    console.log(gender);
-    console.log(level);
-    console.log(age);
-
-}
-
-// checkUser(user.name, user.gender, user.level);
-checkUser(user);
+// const user = {
+//     name: 'Bob',
+//     gender: 'male',
+//     level: 'user',
+//     qwe: 'asd',
+//     zxc: 'zxc',
+// };
 
 
-console.log('<<===============================>>');
+// // function checkUser(name, gender, level){
+// function checkUser(user){
+//     const {name , gender, level, age = 0} = user;
+//     console.log(name);
+//     console.log(gender);
+//     console.log(level);
+//     console.log(age);
 
-const arr22 = [1,2,3,4,5,6];
+// }
 
-const [a,b,c,d] = arr22;
-
-console.log(a);
-console.log(b);
-console.log(c);
-console.log(d);
+// // checkUser(user.name, user.gender, user.level);
+// checkUser(user);
 
 
+// console.log('<<===============================>>');
 
-//Спред оператор (коли не знаю, скільки аргументів буде в функції)
-console.log('<<=============Спред оператор (коли не знаю, скільки аргументів буде в функції)==================>>');
+// const arr22 = [1,2,3,4,5,6];
 
-function sumAll(text, action, ...numbers){
-    console.log(action);
-    let summ = 0;
-    for(let i = 0; i<numbers.length; i++){
-        summ += numbers[i];
-    }
-    return text+' '+summ;
-}
+// const [a,b,c,d] = arr22;
 
-console.log(sumAll('Summ:',87,2,3,4));
+// console.log(a);
+// console.log(b);
+// console.log(c);
+// console.log(d);
+
+
+
+// //Спред оператор (коли не знаю, скільки аргументів буде в функції)
+// console.log('<<=============Спред оператор (коли не знаю, скільки аргументів буде в функції)==================>>');
+
+// function sumAll(text, action, ...numbers){
+//     console.log(action);
+//     let summ = 0;
+//     for(let i = 0; i<numbers.length; i++){
+//         summ += numbers[i];
+//     }
+//     return text+' '+summ;
+// }
+
+// console.log(sumAll('Summ:',87,2,3,4));
 
 
 // import {Lpopup, Lmap} from Leaflet;
 
-// <<===================================================>>
 
 
 
 
 
 
+// <<=====================arr methods JS==============================>>
 
 
 
+const arr = ['foo', 'hello', 'bar', 'lorem', 'Ipsumdolor', 'Audi'];
+console.log(arr);
+
+// const arrObj = [
+//     {
+//         key:0,
+//         value:'foo'
+//     },
+// ]
+
+const arrObj = [];
+
+const arrShort = [];
+
+
+let opts = '';
+arr.forEach((el, index)=>{
+    opts +='<option value="'+index+'">'+el+'</option>'+"\n";
+    arrObj.push({
+        key: index,
+        value: el
+    })
+});
+
+console.log(opts);
+
+console.log(arrObj);
+
+const arrObj2 = arr.map((el, index)=>{
+    return {
+        key: index,
+        value: el
+    }
+});
+console.log(arrObj2);
+
+const arr2 = arr.map((el, index)=>(index+1)+'-'+el);
+
+console.log(arr2);
+
+
+arr.forEach((el, index)=>{
+    opts +='<option value="'+index+'">'+el+'</option>'+"\n";
+    if(el.length<=4){
+          arrShort.push(el)
+    }
+});
+
+const arrShort2 = arr.filter(el=>el.length<=4);
+
+console.log(arrObj);
+
+console.log('arrShort', arrShort);
+console.log('arrShort2', arrShort2);
+
+
+//функця замикання (щоб закрити глобальну CART від зовнішнього доступу)
+function workWithCart(){
+    let CART = [];
+
+    return {
+        addToCart: function(name='', qty=1){
+            CART.push({
+                name: name,
+                qty: qty
+            })
+        },
+        viewCart: function(){
+            return CART;
+        }
+    }
+}
+
+const cartActions = workWithCart();
+cartActions.addToCart('qwe', 2);
+
+console.log(cartActions.viewCart());
+
+
+
+
+{
+    let myCART = [];
+
+    function addTomyCart(name, qty){
+        myCART.push({
+            name: name,
+            qty: qty
+        });
+    }
+
+    addTomyCart('foo', 2);
+    console.log('myCART', myCART); // зма межами {} - myCART не буде працювати
+}
+
+
+const personal = [
+    {
+        name: 'Bob',
+        lvl: 'user',
+        age: 35
+    },
+    {
+        name: 'Ann',
+        lvl: 'manager',
+        age: 25
+    },
+    {
+        name: 'John',
+        lvl: 'admin',
+        age: 33
+    },
+];
+
+console.log(personal);
+
+// const balArr = personal.map(el=>{
+//     return el.age * 100;
+// });
+
+const balArr = personal.forEach(el => {
+    console.log(el);
+    el.balance = el.age * 100
+});
+console.log('balArr (personal)', personal);
+
+
+
+const balArr2 = personal.map(el => {
+    // el.balance = el.age * 100
+    // return el;
+    return {
+        name: el.name,
+        lvl: el.lvl,
+        age: el.age,
+        balance: el.age * 100
+    }
+});
+
+console.log('balArr2', balArr2);
+
+
+balArr2
+    .filter(el=>el.age>=30)
+    .map(el=>el.balance += 500);
+balArr2.sort((a,b)=>a.age - b.age);
+
+console.log(balArr2);
+
+const divs = document.getElementsByTagName('div');
+console.log(divs);
+
+for(let i = 0; i<divs.length;i++){
+    console.log(divs)
+}
+
+// тіньовий DOM
+const tr = document.createElement('tr');
+const td1 = document.createElement('td');
+td1.setAttribute('colspan', '4')
+td1.innerText = 'Some text here';
+tr.append(td1);
+document.getElementById('cart-body').append(tr);
 
