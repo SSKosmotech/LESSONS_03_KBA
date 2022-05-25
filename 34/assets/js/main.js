@@ -1983,6 +1983,7 @@ balArr2
     .filter(el=>el.age>=30)
     .map(el=>el.balance += 500);
 balArr2.sort((a,b)=>a.age - b.age);
+// balArr2.sort((a,b)=>a.name.localeCompare(b.name);
 
 console.log(balArr2);
 
@@ -2001,3 +2002,13 @@ td1.innerText = 'Some text here';
 tr.append(td1);
 document.getElementById('cart-body').append(tr);
 
+
+
+let str = "Hello World";
+console.log(str[0]);
+
+str[0] = 'G'; //не спрацює
+console.log(str);
+
+
+console.log('bla '.repeat(3));
