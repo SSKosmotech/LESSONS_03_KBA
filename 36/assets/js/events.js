@@ -36,14 +36,14 @@ console.log(liElements);
 })
 
 document.body.addEventListener('contextmenu', function(e){
-    // console.log('contex');
-    // e.stopPropagation();
-    // e.preventDefault();
-    // const div = document.createElement('div');
-    // div.className = 'my_context';
-    // div.style.left = e.clientX + 'px';
-    // div.style.top = e.clientY + 'px';
-    // document.body.append(div);
+    console.log('contex');
+    e.stopPropagation();
+    e.preventDefault();
+    const div = document.createElement('div');
+    div.className = 'my_context';
+    div.style.left = e.clientX + 'px';
+    div.style.top = e.clientY + 'px';
+    document.body.append(div);
 })
 
 // const list = document.querySelector('.list');
