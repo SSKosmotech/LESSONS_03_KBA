@@ -233,7 +233,7 @@ $(function(){
     // console.log(val);
     console.log(text);
 
-    $("#wrap").find('span').css('color', 'red')
+    $("#wrap").find('span').css('color', 'red');
 
     // $("ol li").click(function(){
     //     $(this).css('color', 'blue')
@@ -247,7 +247,7 @@ $(function(){
     })
 
     $(document).on('click', 'ol li', function(){
-        
+
     });
 
     $("#sq").
