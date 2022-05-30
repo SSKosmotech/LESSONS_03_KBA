@@ -1,0 +1,1 @@
+"use strict";$(function(){$("ol").attr("data-foo","hello");console.log(text),$("#wrap").find("span").css("color","red")});
