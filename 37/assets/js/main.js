@@ -228,10 +228,13 @@
 
 $(function(){
     const val = $("ol").attr("data-foo", "hello");
-    // const text $("ol li:first-child").text('Hello');
-    const text = $("ol li:first-child").html('<b>Hello</b>');
+    const text = $("ol li:first-child").text('Hello');
+    // const text = $("ol li:first-child").html('<b>Hello</b>');
+    // $("ol li").eq(0);
     // console.log(val);
-    console.log(text);
+
+    // const text = $("ol li:first-child").text();
+    // console.log(text);
 
     $("#wrap").find('span').css('color', 'red');
 
@@ -246,24 +249,24 @@ $(function(){
         $(this).css('color', 'blue')
     })
 
-    $(document).on('click', 'ol li', function(){
+    // $(document).on('click', 'ol li', function(){
 
-    });
+    // });
 
-    $("#sq").
-    css('color', 'blue').
-    css('border', '2px splid green');
+    $("#sq")
+    .css('color', 'blue')
+    .css('border', '2px solid green');
 
     $("#sq").css({
         'color': 'blue',
-        'border': '2px splid green',
+        'border': '2px solid green',
         marginTop: 20,
         opacity: .5
     })
 
 
-    $("#sq").on('click',function() {
-        $(this).animate({left:600}, 1000)
+    $("#sq").on('click', function() {
+        $(this).animate({left:600, top:600}, 1000)
 
     });
 
