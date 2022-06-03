@@ -1,3 +1,8 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 .container {
     max-width: 1200px;
     width: 90%;
@@ -8,6 +13,7 @@
     height: 300px;
     /* background: #000 url('') 50% 50%/cover no-repeat; */
     background-color: #000;
+    background-position: 50% 50%;
     background-position: cover;
     background-repeat: no-repeat;
     text-align: center;
@@ -16,14 +22,14 @@
     font-size: 40px;
 }
 body {
-    background-color: grey;
+    background-color: #999;
 }
 
 .promo_wrap{
     margin-bottom: 100px;
 }
 
-// slick custom dots
+/* slick custom dots*/
 
 .slick-dots li button {
     // font-size: 0;
@@ -32,7 +38,7 @@ body {
     width: 30px;
     height: 30px;
     padding: 0;
-    cursor: pointer;
+    // cursor: pointer;
     // color: transparent;
     // border: 0;
     // outline: none;
@@ -56,21 +62,34 @@ body {
     border-radius: 50%;
 }
 
-
-.slick-dots li {
-    position: relative;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-    padding: 0;
-    cursor: pointer;
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    // color: black;
+    background-color: violet;
 }
 
+
+.slick-dots li {
+    // position: relative;
+    // display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 15px;
+    // padding: 0;
+    // cursor: pointer;
+}
+
+.articles_slick {
+    margin-bottom: 50px;
+}
+
+.articles_slider {
+    margin-bottom: 100px;
+}
+
+
 .slick-dots {
-    
     bottom: -50px;
-   
 }
 
 .article_pic {
@@ -81,6 +100,7 @@ body {
 .article_pic img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .article_item{
@@ -90,6 +110,20 @@ body {
 
 .articles_wrap {
     // margin: 0 -10px;
+    // padding: 80px 0;
+    position: relative;
 }
 
-//custom lights dot
+/*custom light slider dots*/
+
+.lSSlideOuter .lSPager.lSpg {
+    position: absolute;
+    // right: 10px;
+    right: -30px;
+    top: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}

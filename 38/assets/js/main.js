@@ -288,7 +288,7 @@
             // fade: true
         })
           
-        $('#articles_slider').slick({
+        $('.articles_slick').slick({
             slidesToShow: 3,
             responsive: [
                 {
@@ -312,21 +312,22 @@
             slideMargin: 40,
             slidesToShow: 3,
             loop: true,
-            controls: false,
+            // controls: false,
             responsive : [
-                {
-                    breakpoint:800,
+              {
+                    breakpoint:992,
                     settings: {
                         item:2,
-                        slideMove:1,
-                        slideMargin:6,
+                        // slideMove:1,
+                        slideMargin: 40,
+                        // slideMargin:6,
                       }
                 },
                 {
                     breakpoint:480,
                     settings: {
                         item:1,
-                        slideMove:1
+                        // slideMove:1
                       }
                 }
             ]
