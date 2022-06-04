@@ -126,18 +126,3 @@ body {
     justify-content: center;
     flex-direction: column;
 }
-
-
-
-// <<=================TABS========================>>
-
-.tab_content {
-    display: none;
-}
-.tab_content.active {
-    display: block;
-}
-
-.tab_list a.active {
-    
-}

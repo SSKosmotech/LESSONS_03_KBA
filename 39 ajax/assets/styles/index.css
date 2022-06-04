@@ -96,11 +96,3 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-
-.tab_content {
-  display: none;
-}
-
-.tab_content.active {
-  display: block;
-}

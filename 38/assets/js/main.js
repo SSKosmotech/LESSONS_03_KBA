@@ -341,6 +341,21 @@
         $("#articles_next").on('click', function(){
             articlesSlider.goToNextSlide();
         })
+
+        // tabs
+
+        $(".tab_list a").on('click', function(){
+          if(!$(this).hasClass("active")){
+              $(".tab_list a.active").removeClass("active");
+              $(this).addClass("active");
+              $(".").removeClass("active");
+
+          }
+        })
+
+        if(window.location.href.indexOf("#reviews")!==-1){
+          $("#reviews, .tab_content[data-id='reviews']")
+        }
         
     });
 
