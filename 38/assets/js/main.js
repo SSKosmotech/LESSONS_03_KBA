@@ -1,5 +1,4 @@
 // const btn = document.getElementById('btn');
-
 // btn.onclick = btnHandler;
 // // btn.onclick = btnHandler2;
 
@@ -359,3 +358,10 @@
         
     });
 
+
+// <<==============================TAB========================>>
+$(".tab_list a").on('click', function(){
+  if($(this).hasClass("active")){
+    console.log("Є клас Актив");
+  }
+})

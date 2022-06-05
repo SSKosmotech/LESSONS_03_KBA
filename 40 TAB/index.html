@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAB</title>
+
+    <style>
+        .tab_content {
+            display: none;
+        }
+
+        .tab_content.active{
+            display: block;
+        }
+
+        .tab_list a.active {
+            font-weight: 600;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    
+<!-- <<==============================TAB========================>> -->
+
+<ul class="tab_list">
+    <li><a href="javascript:void(0)" class="active" id="tab_1">Tab 1</a></li>
+    <li><a href="javascript:void(0)" id="tab_2">Tab 2</a></li>
+    <li><a href="javascript:void(0)" id="tab_3">Tab 3</a></li>
+    <!-- <li><a href="javascript:void(0)" id="reviews">Tab 3</a></li> -->
+</ul>
+
+<div class="tab_wrap">
+    <!-- <div class="tab_content active" id="tab_1_content"> -->
+    <div class="tab_content active" data-id="tab_1">
+        <h2>Tab 111</h2>
+    </div>
+    <div class="tab_content" data-id="tab_2">
+        <h2>Tab 222</h2>
+    </div>
+    <div class="tab_content" data-id="tab_3">
+    <!-- <div class="tab_content" data-id="reviews"> -->
+        <h2>Tab 333</h2>
+    </div>
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/main.js"></script>
+</div>
+</body>
+</html>
