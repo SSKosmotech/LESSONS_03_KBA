@@ -27,6 +27,7 @@
             url: `http://www.omdbapi.com/`,
             // url: `http://www.omdbapi.com/?apikey=${API_KEY}&s=Batman`,
             data: `apikey=${API_KEY}&s=Batman`,
+            // data: `apikey=${API_KEY}&t=Batman`,
             // data: { // можна і так
             //     apikey: API_KEY,
             //     s: 'Batman',
@@ -36,13 +37,20 @@
             success: function(json){
                 console.log(json);
                 showMovies(json.Search);
+                // showMovies(json.Actors);
             }
         })
       });
 
+
+
+
+  
+
       function showMovies(movies){
           let html = '';
           movies.forEach(item=>{
+              // html = `<div>${movies}</div>`;
               html += `<div class="card" style="width: 18rem;">
             <img src="${item.Poster}" class="card-img-top" alt="${item.Title}">
             <div class="card-body">

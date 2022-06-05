@@ -1,4 +1,4 @@
-//<<============XMLHttpRequest js native==============>>
+// //<<============XMLHttpRequest js native==============>>
 // const xhr = new XMLHttpRequest();
 // xhr.overrideMimeType('application/json');
 // xhr.open('get', 'assets/data/cart.json');
@@ -42,21 +42,21 @@
 //     //     return false;
 //     // });
 
-// // try {
-// //     fetch('assets/data/cart.json')
-// //     .then(resp=>{                   
-// //         return resp.json();
-// //     })
-// //     .then(resp=>{
-// //         console.log(resp);
-// //         viewCart(resp);
-// //     })
-// // }catch(err){
-// //     alert(err);
-// // }
+// try {
+//     fetch('assets/data/cart.json')
+//     .then(resp=>{                   
+//         return resp.json();
+//     })
+//     .then(resp=>{
+//         console.log(resp);
+//         viewCart(resp);
+//     })
+// }catch(err){
+//     alert(err);
+// }
 
 
-//<<=====================axios library=================>>
+// <<=====================axios library=================>>
 // axios('assets/data/cart.json')
 //     .then(resp=>{
 //         console.log(resp);
@@ -67,7 +67,7 @@
 //         alert(err.message);
 //     })
 
-//<<=====================Jquery library=================>>
+// <<=====================Jquery library=================>>
 // $.ajax({
 //     url: 'assets/data/cart.json',
 //     type: 'get',
@@ -94,7 +94,11 @@
 // });
 
 //те що зверху, тільки ще ще короче
+// $.get('assets/data/cart.json', (resp)=>{console.log(resp);});
 // $.get('assets/data/cart.json', (resp)=>{viewCart(resp);});
+
+
+
 
 
 // function viewCart(cart) {
@@ -117,7 +121,14 @@ function loadPage(page){
     })
 }
 
-loadPage('main');  //main - назва сторінки без html
+// це теж саме html = resp
+// function loadPage(page){
+//     $.get('pages/'+page+'.html', (resp)=>{
+//         $("#page_content").html(resp);
+//     })
+// }
+
+loadPage('main');  //main - це назва сторінки (документу) без html (в цьому випадку - це сторінка - main.html)
 
 $(function(){
     $(".nav-masthead a").on('click', function(e){
