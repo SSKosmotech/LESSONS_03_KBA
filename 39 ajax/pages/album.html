@@ -1,13 +1,13 @@
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Album example</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
+
+      <div class="col-10">
+        <input type="search" id="search" class="form-control">
       </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-info" id="search_btn">Search</button>
+      </div>
+
     </div>
   </section>
 
@@ -21,31 +21,116 @@
   
   <script>
       const API_KEY = 'd7be29bf';
+
+      // $(function(){
+      //   //   console.log("Page album loaded");
+      //   $.ajax({
+      //       url: `http://www.omdbapi.com/`,
+      //       // url: `http://www.omdbapi.com/?apikey=${API_KEY}&s=Batman`,
+      //       data: `apikey=${API_KEY}&s=Batman`,
+      //       // data: `apikey=${API_KEY}&t=Batman`,
+      //       // data: { // можна і так
+      //       //     apikey: API_KEY,
+      //       //     s: 'Batman',
+      //       // }
+      //       type: 'get',
+      //       dataType: 'json',
+      //       success: function(json){
+      //           console.log(json);
+      //           showMovies(json.Search);
+      //           // showMovies(json.Actors);
+      //       }
+      //   })
+      // });
+
+
       $(function(){
-        //   console.log("Page album loaded");
-        $.ajax({
-            url: `http://www.omdbapi.com/`,
-            // url: `http://www.omdbapi.com/?apikey=${API_KEY}&s=Batman`,
-            data: `apikey=${API_KEY}&s=Batman`,
-            // data: `apikey=${API_KEY}&t=Batman`,
-            // data: { // можна і так
-            //     apikey: API_KEY,
-            //     s: 'Batman',
-            // }
-            type: 'get',
-            dataType: 'json',
-            success: function(json){
-                console.log(json);
-                showMovies(json.Search);
-                // showMovies(json.Actors);
+        $("#search_btn").on('click',function(){
+          const search= $('#search').val();
+          // const year = $('#year').val();
+          if(search !== ''){
+            //або
+            searchMovies(search).then((respons)=>{
+            // searchMovies(search, year).then((respons)=>{
+              showMovies(respons.Search);
+          })
+          //OR
+          // fiterMovies(search);
+          // fiterMovies(search, year);
             }
-        })
+         });
+
+         $("body").on('click', ".btn-detail", function(){
+          //  const id = $(this).attr("data-id") // always string
+          //OR
+           const id = $(this).data("id"); // by value type
+           getMovie(id).then(resp=>{
+             console.log(resp);
+           })
+         });
+
       });
 
+      async function getMovie(id) {
+        return fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
+          .then(resp=>{
+            return resp.json;
+          })
+          .then(resp=>{
+            return resp;
+          })
+      }
 
 
+// <<===========================fetch=======================>>
+      // async function searchMovies(search){
+      //   return $.ajax({
+      //       url: `http://www.omdbapi.com/`,
+      //       data: `apikey=${API_KEY}&s=${search}`,
+      //       type: 'get',
+      //       dataType: 'json',
+      //    })
+      // }
+          
 
-  
+
+      // <<===========================fetch=======================>>
+      async function searchMovies(search){
+        return fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`)
+        .then(resp=>{                   // теж саме що вище, тільки короче
+          return resp.json();
+        })
+        .then(resp=>{
+          return resp;
+      });
+    }
+
+    //Year
+    //   async function searchMovies(search, year){
+    //     let url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`;
+    //     if(yaer!==''){
+    //       url += '&y='+year;
+    //     }
+    //     return fetch(url)
+    //     .then(resp=>{                   // теж саме що вище, тільки короче
+    //       return resp.json();
+    //     })
+    //     .then(resp=>{
+    //       return resp;
+    //   });
+    // }
+
+    // async function fiterMovies() {
+    //   // const movie_list = await searchMovies(search);
+    //   const movie_list = await searchMovies('batman');
+    //   console.log(movie_list);
+    //   showMovies(movie_list.Search);
+    // }
+
+    // fiterMovies();
+
+
+    
 
       function showMovies(movies){
           let html = '';
@@ -56,12 +141,15 @@
             <div class="card-body">
                 <h5 class="card-title">${item.Title}</h5>
                 <p class="card-text">${item.Year}</p>
-                <a href="#" class="btn btn-primary data-id="${item.imdbID}">Detail</a>
+                
+                <button class="btn btn-primary btn-detail data-id="${item.imdbID}">Detail</a>
             </div>
             </div>`;
           });
           $(".movie_wrap").html(html);
       }
-
+      
+      //замість button
+      // <a href="#" class="btn btn-primary data-id="${item.imdbID}">Detail</a>
 
   </script>
