@@ -1,13 +1,12 @@
-:root {
-    --text-color: #E8E8E8;
-    --text-size: 1rem;
-    --font-family: 'Josefin Sans', sans-serif;
-    --line-height: 1.625rem;
-    --bcg-color: #232323;
-    --color-white: #fff;
-    --width-main-container: 1770px;
-    --width-container: 1110px;
-}
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Source Sans Pro', sans-serif;
+
+$font_family: 'Source Sans Pro', sans-serif;
+$text_color: #E8E8E8;
+$font_size: 1rem;
+$line_height: 1.625rem;
+$background_color_white: #232323;
 
 $base_fz: 16;
 
@@ -19,7 +18,7 @@ $base_fz: 16;
 @import 'hamburger';
 
 body {
-    font-family: var(--font-family);
+    font-family: $font_family;
     color: var(--text-color);
     font-size: var(--text-size);
     line-height: var(--line-height);
@@ -27,6 +26,8 @@ body {
         overflow: hidden;
     }
 }
+
+
 
 .main_container {
     width: 100%;

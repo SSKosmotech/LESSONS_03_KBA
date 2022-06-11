@@ -82,16 +82,16 @@
 //     }
 // });
 
-// // те що зверху, тільки короче
-// $.ajax('assets/data/cart.json')
-//     .done(function(resp){
-//         console.log(resp);
-//         viewCart(resp);
-//     })
-//     .fail(function(err){
-//         console.log(err);
-//         alert(err.statusText)
-// });
+// те що зверху, тільки короче
+$.ajax('assets/data/cart.json')
+    .done(function(resp){
+        console.log(resp);
+        viewCart(resp);
+    })
+    .fail(function(err){
+        console.log(err);
+        alert(err.statusText)
+});
 
 //те що зверху, тільки ще ще короче
 // $.get('assets/data/cart.json', (resp)=>{console.log(resp);});
@@ -101,18 +101,18 @@
 
 
 
-// function viewCart(cart) {
-//     let html = '<ul>';
-//     cart.forEach(item=>{
-//         html += `
-//         <li>
-//             <b>${item.name}</b> ${item.qty} - ${item.price}
-//         </li>
-//         `;
-//     });
-//     html += '</ul>';
-//     document.body.insertAdjacentHTML('afterbegin', html);
-// }
+function viewCart(cart) {
+    let html = '<ul>';
+    cart.forEach(item=>{
+        html += `
+        <li >
+            <b class="test">${item.name}</b> ${item.qty} - ${item.price}
+        </li>
+        `;
+    });
+    html += '</ul>';
+    document.body.insertAdjacentHTML('afterbegin', html);
+}
 
 
 function loadPage(page){
