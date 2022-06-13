@@ -259,6 +259,12 @@ document.body.addEventListener('click', function(e){
 
 })
 
+    lightGallery(document.getElementById('lightgallery'), {
+        plugins: [lgZoom, lgThumbnail],
+        speed: 500
+    });
+
+
 
 
 
