@@ -1,0 +1,1 @@
+"use strict";var rect=new Figure(300,150,"tomato",100,60);rect.show();var rectBlue=new Figure(300,150,"blue",300,160);rectBlue.show();

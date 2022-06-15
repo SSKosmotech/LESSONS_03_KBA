@@ -1,0 +1,1 @@
+"use strict";var rect=new Figure(300,150,"tomato",100,60);rect.show();var rectBlue=new Square(120,"blue",300,160);rectBlue.show();var circ=new Circle(250,"yellow",500,200);circ.show();var circ2=new Circle(170,"green",470,20);circ2.show();
