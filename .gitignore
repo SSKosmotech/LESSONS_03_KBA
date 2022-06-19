@@ -1,3 +1,5 @@
 .vscode
 desctop.ini
 additional
+node_modules
+dist

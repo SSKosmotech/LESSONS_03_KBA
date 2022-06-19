@@ -1,19 +1,26 @@
-// // function createAnimal (name) {
-// //     this.name = name;
+// function CreateAnimal (name) {
+//     this.name = name;
+// }
 
-// // }
-
-// // const cat = new createAnimal('Sara');
+// const cat = new createAnimal('Sara');
 
 
 // class Animal {
 //     constructor(name) {
 //         this.name = name;
 //     }
-//     sayHi(){
-//         console.log(`${this.name} say Hi`);
-//     }
+//     // sayHi(){
+//     //     console.log(`${this.name} say Hi`);
+//     // }
 // }
+
+    // const cat = new Animal('Sara');
+    
+    // console.log(cat);
+    
+    // console.log(`${this.name} say Hi`);
+
+
 
 // class Cat extends Animal {
 //     constructor(name, color){
