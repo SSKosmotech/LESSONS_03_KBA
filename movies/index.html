@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">   
     <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 <body>
@@ -16,11 +16,22 @@
                 <div class="card-body">
                     <form id="search_form" @submit.prevent="searchMovies">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-6">
                                 <input type="search" class="form-control" placeholder="Enter movie title" v-model="search">
                             </div>
-                            <div class="col-4">
+                            <div class="col-2">
+                                <select v-model="selectedType" class="form-select">
+                                    <option disabled value="">Please select one</option>
+                                    <option value="all" >All</option>
+                                    <option value="movie" >Movie</option>
+                                    <option value="series">Series</option>
+                                </select>
+                            </div>
+                            <div class="col-1">
                                 <button type="submit" class="btn btn-info">Search</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="submit" class="btn btn-warning">My Favorite</button>
                             </div>
                         </div>
                     </form>
@@ -31,12 +42,15 @@
                     <h3>Movie list</h3>
                 </div>
                 <div class="card-body row">
-                    <div class="card col-3" v-for="movie in movieList" :key="movie.imdbID">
-                    <img :src="movie.Poster" class="card-img-top" :alt="movie.Title">
-                    <div class="card-body">
-                      <h5 class="card-title"> {{ movie.Title }} </h5>
-                      <p class="card-text">{{ movie.Year }}</p>
-                      <button type="button" class="btn btn-primary" @click="getMovieInfo(movie.imdbID)">Info</button>
+                    <div class="card col-3 mb-4 " v-for="movie in movieList" :key="movie.imdbID">
+                        <img :src="movie.Poster" class="card-img-top pt-4" :alt="movie.Title">
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ movie.Title }} </h5>
+                            <p class="card-text"><b>Year:</b> {{ movie.Year }}</p>
+                            <p class="card-text"><b>Type:</b> {{ movie.Type }}</p>
+                            <button type="button" class="btn btn-primary me-2" @click="getMovieInfo(movie.imdbID)">Info</button>
+                            <button type="button" class="btn btn-warning" @click="setFavorite(movie.imdbID)">&#9733;</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -44,7 +58,33 @@
 
         <div class="modal_overlay" v-if="showModal">
             <div class="my_modal">
-                {{ movieInfo.Title }}
+
+                <div class="info_container mb-4">
+                    <div class="img_container">
+                        <img :src="movieInfo.Poster" class="card-img-top pt-4" :alt="movieInfo.Title">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"> {{ movieInfo.Title }} </h4>
+                        <p class="card-text"><span class="bold">Year: </span>{{ movieInfo.Year }}</p>
+                        <p><span class="bold">Awards: </span>{{ movieInfo.Awards }}</p>
+                        <p><span class="bold">Rated: </span>{{ movieInfo.Rated }}</p>
+                        <p><span class="bold">Released: </span>{{ movieInfo.Released }}</p>
+                        <p><span class="bold">Runtime: </span>{{ movieInfo.Runtime }}</p>
+                        <p><span class="bold">Genre: </span>{{ movieInfo.Genre }}</p>
+                        <p><span class="bold">Director: </span>{{ movieInfo.Director }}</p>
+                        <p><span class="bold">Writer: </span>{{ movieInfo.Writer }}</p>
+                        <p><span class="bold">Actors: </span>{{ movieInfo.Actors }}</p>
+                        <p><span class="bold">Plot: </span>{{ movieInfo.Plot }}</p>
+                        <p><span class="bold">Language: </span>{{ movieInfo.Language }}</p>
+                        <p><span class="bold">Country: </span>{{ movieInfo.Country }}</p>
+                        
+                        <p><span class="bold">Ratings:</span></p>
+                        <li v-for="(rating, index) in movieInfo.Ratings" :key="index">
+                            {{ rating.Source }} - {{ rating.Value }}
+                        </li>
+                    
+                    </div>
+                </div>
                 <button type="button" class="btn btn-info" @click="showModal=false">Close</button>
             </div>
         </div>

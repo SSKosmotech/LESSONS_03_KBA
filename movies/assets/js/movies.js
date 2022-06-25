@@ -3,6 +3,7 @@ const App = {
         return {
             API_KEY: 'd7be29bf',
             search: "Batman",
+            selectedType: 'all',
             movieList: [],
             movieInfo: {},
             showModal: false
@@ -11,7 +12,11 @@ const App = {
     methods: {
         searchMovies() {
             if(this.search !== ''){
-                axios.get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&s=${this.search}`)
+                if(this.selectedType === 'all'){
+                    this.selectedType = ''
+                }
+                console.log(this.selectedType);
+                axios.get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&s=${this.search}&type=${this.selectedType}`)
                 .then(response => {
                     // handle success
                     this.movieList = response.data.Search
