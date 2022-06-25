@@ -11,9 +11,12 @@
     z-index: 100;
     .my_modal {
         background-color: #fff;
-        padding: 40px;
+        padding: 20px;
         width: 70%;
-        max-width: 600px;
+        max-width: 700px;
+        max-height: 100vh;
+        // height: 100%;
+        overflow: auto;
     }
     .info_container{
       display: flex;
@@ -23,16 +26,15 @@
 
     }
     .img_container {
-        max-height: 400px;
+        // max-height: 400px;
         height: 100%;
-        max-width: 200px;
+        max-width: 100px;
         width: 100%;
     }
     .bold {
         font-weight: 700;
     }
 }
-
 
 img {
     width: 100%;

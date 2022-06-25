@@ -82,8 +82,8 @@ const App = {
         },
         showFavorites(){
             this.showFavoritesModal = true
-            this.myFavorite = JSON.parse(localStorage.getItem('myFavorite')) || [];
-            console.log(this.myFavorite);
+            this.myFavorite = JSON.parse(localStorage.getItem('myFavorite'));
+            console.log(`Check: ${this.myFavorite}`);
         }
     }
 }
