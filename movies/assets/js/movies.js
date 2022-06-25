@@ -6,7 +6,9 @@ const App = {
             selectedType: 'all',
             movieList: [],
             movieInfo: {},
-            showModal: false
+            showModal: false,
+            myFavorite: [],
+            showFavoritesModal: false
         }
     },
     methods: {
@@ -52,6 +54,36 @@ const App = {
             .then(function () {
                 // always executed
             });
+        },
+        setFavorites(id, title){
+            this.myFavorite = JSON.parse(localStorage.getItem('myFavorite')) || [];
+            // this.myFavorite = id
+            console.log(id, title)
+            if(this.myFavorite.find(el => el.id===id) === undefined){
+                this.myFavorite.push({
+                    id: id,
+                    title: title
+                });
+                // console.log(this.myFavorite);
+                // localStorage.setItem('myFavorite', JSON.stringify(this.myFavorite));
+            //     localStorage.removeItem('myFavorite', JSON.stringify(this.myFavorite));
+            }
+            else{
+                // localStorage.removeItem(this.myFavorite);
+                // localStorage.removeItem('myFavorite', JSON.stringify(this.myFavorite));
+                const delFavoriteIndex = this.myFavorite.findIndex(el => el.id===id);
+                console.log(`delFavoriteIndex= ${delFavoriteIndex}`);
+
+                this.myFavorite.splice(delFavoriteIndex, 1);
+
+            }
+            localStorage.setItem('myFavorite', JSON.stringify(this.myFavorite));
+            console.log(this.myFavorite);
+        },
+        showFavorites(){
+            this.showFavoritesModal = true
+            this.myFavorite = JSON.parse(localStorage.getItem('myFavorite')) || [];
+            console.log(this.myFavorite);
         }
     }
 }

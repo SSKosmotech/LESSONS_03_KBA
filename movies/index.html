@@ -14,27 +14,32 @@
         <div class="container pt-4">
             <div class="card mb-4">
                 <div class="card-body">
-                    <form id="search_form" @submit.prevent="searchMovies">
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="search" class="form-control" placeholder="Enter movie title" v-model="search">
-                            </div>
-                            <div class="col-2">
-                                <select v-model="selectedType" class="form-select">
-                                    <option disabled value="">Please select one</option>
-                                    <option value="all" >All</option>
-                                    <option value="movie" >Movie</option>
-                                    <option value="series">Series</option>
-                                </select>
-                            </div>
-                            <div class="col-1">
-                                <button type="submit" class="btn btn-info">Search</button>
-                            </div>
-                            <div class="col-2">
-                                <button type="submit" class="btn btn-warning">My Favorite</button>
-                            </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <form id="search_form" @submit.prevent="searchMovies">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="search" class="form-control" placeholder="Enter movie title" v-model="search">
+                                    </div>
+                                    <div class="col-4">
+                                        <select v-model="selectedType" class="form-select">
+                                            <option disabled value="">Please select one</option>
+                                            <option value="all" >All</option>
+                                            <option value="movie" >Movie</option>
+                                            <option value="series">Series</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="submit" class="btn btn-info">Search</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+
+                        <div class="col-4">
+                            <button type="button" class="btn btn-warning" @click="showFavorites">My Favorite</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card">
@@ -49,7 +54,7 @@
                             <p class="card-text"><b>Year:</b> {{ movie.Year }}</p>
                             <p class="card-text"><b>Type:</b> {{ movie.Type }}</p>
                             <button type="button" class="btn btn-primary me-2" @click="getMovieInfo(movie.imdbID)">Info</button>
-                            <button type="button" class="btn btn-warning" @click="setFavorite(movie.imdbID)">&#9733;</button>
+                            <button type="button" class="btn btn-warning" @click="setFavorites(movie.imdbID, movie.Title)">&#9733;</button>
                         </div>
                     </div>
                 </div>
@@ -86,6 +91,20 @@
                     </div>
                 </div>
                 <button type="button" class="btn btn-info" @click="showModal=false">Close</button>
+            </div>
+        </div>
+
+        <div class="modal_overlay" v-if="showFavoritesModal">
+            <div class="my_modal">
+                <div class="info_container mb-4">
+                    <div class="card-body">
+                        <h3>My favorites:</h3>
+                        <li v-for="(item, index) in this.myFavorite" :key="index">
+                            {{ item.title }} (<b>imdbID:</b> {{ item.id }})
+                        </li>
+                    </div>
+                </div>
+            <button type="button" class="btn btn-info" @click="showFavoritesModal=false">Close</button>
             </div>
         </div>
 

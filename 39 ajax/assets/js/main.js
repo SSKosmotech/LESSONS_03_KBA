@@ -217,7 +217,7 @@ CART.push({
     isBuy: false
 });
 
-localStorage.setItem('CART', JSON.stringify(CART));
+localStorage.setItem('CART2', JSON.stringify(CART));
 
 // console.log('CART', JSON.stringify(CART));
 // const CART_FROM_STORAGE = JSON.parse(localStorage.getItem('CART'));
