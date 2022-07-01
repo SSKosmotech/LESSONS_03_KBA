@@ -1,0 +1,50 @@
+[
+    {
+        "link": "images/work-1.jpg",
+        "image": "images/work-1.jpg",
+        "title": "Project Name",
+        "text": "Website Design"
+    },
+    {
+        "link": "images/work-2.jpg",
+        "image": "images/work-2.jpg",
+        "title": "Project Name",
+        "text": "Website Design"
+    },
+    {
+        "link": "images/work-3.jpg",
+        "image": "images/work-3.jpg",
+        "title": "Project Name",
+        "text": "Website Design"
+    },
+    {
+        "link": "images/work-4.jpg",
+        "image": "images/work-4.jpg",
+        "title": "Project Name",
+        "text": "Website Design"
+    },
+    {
+        "link": "images/work-5.jpg",
+        "image": "images/work-5.jpg",
+        "title": "Project Name",
+        "text": "Website Design"
+    },
+    {
+        "link": "images/work-6.jpg",
+        "image": "images/work-6.jpg",
+        "title": "Project Name",
+        "text": "Website Design"
+    },
+    {
+        "link": "images/work-7.jpg",
+        "image": "images/work-7.jpg",
+        "title": "Project Name",
+        "text": "Website Design"
+    },
+    {
+        "link": "images/work-8.jpg",
+        "image": "images/work-8.jpg",
+        "title": "Project Name",
+        "text": "Website Design"
+    }
+]
