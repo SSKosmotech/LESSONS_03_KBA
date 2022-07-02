@@ -10,7 +10,7 @@
                     <div class="footer-col col-md-4">
                         <h5>Share with Love</h5>
                         <ul class="footer-share">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><font-awesome-icon icon="fa-brands fa-facebook" /></a></li>
                             <li><a href="https://twitter.com/kamal_chaneman"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="https://www.linkedin.com/in/kamalchaneman"><i class="fa fa-linkedin"></i></a></li>
                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -26,9 +26,18 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="col-md-12">
+                    <font-awesome-icon icon="fa-brands fa-facebook" />
+                    <font-awesome-icon icon="fa-brands fa-twitter" />
                     <p>Copyright © 2015 ActiveBox. All Rights Reserved<br>Made with <i class="fa fa-heart pulse"></i> by <a href="http://kamalchaneman.com/">Kamal Chaneman</a></p>
                 </div>
             </div>
         </div>
     </footer><!-- footer -->
 </template>
+
+
+<script>
+export default {
+    name: 'SiteFooter'
+}
+</script>

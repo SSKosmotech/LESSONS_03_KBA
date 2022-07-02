@@ -2,9 +2,15 @@
     <section id="works" class="works section no-padding">
         <div class="container-fluid">
             <div class="row no-gutter">
-                <div v-for="(work, index) in worksListData" :key="index" class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a :href="work.link" class="work-box">
-                        <img :src="work.image" alt="">
+                <!-- <div v-for="index in 8" :key="index" class="col-lg-3 col-md-6 col-sm-6 work animated"> -->
+                <div v-for="(work, index) in worksListData" :key="index" class="col-lg-3 col-md-6 col-sm-6 work ">
+                    <!-- <a :href="`../assets/images/${work.image}`" class="work-box"> -->
+                    <!-- <a :href="`../assets/images/work-${{index}}.jpg`" class="work-box"> -->
+                    <!-- <a :href="require(`@/assets/images/${work.image}`)" class="work-box" @click="showImage"> -->
+                    <a :href="require(`@/assets/images/`+work.image)" class="work-box" @click="showImage">
+                        <!-- <img :src="require(`@/assets/images/${work.image}`)" :alt="work.title"> -->
+                        <!-- <img :src="work.image" alt=""> -->
+                        <img :src="require(`@/assets/images/`+work.image)" :alt="work.title">
                         <div class="overlay">
                             <div class="overlay-caption">
                                 <h5>{{ work.title }}</h5>
@@ -15,13 +21,28 @@
                 </div>
             </div>
         </div>
+        <modal-window v-if="showModal" @close="showModal = false" >
+            <!-- <template v-slot:header></template> -->
+            <template #header><div></div></template>
+            <template #body>
+                <img :src="previewImage" alt="">
+            </template>
+        </modal-window>
     </section><!-- works -->
+    <!-- <font-awesome-icon icon="fa-solid fa-user" /> -->
+    <font-awesome-icon icon="fa-brands fa-facebook" />
+    <font-awesome-icon icon="fa-brands fa-twitter" />
 </template>
 
 <script>
 import axios from 'axios'
+// import ModalWindow from '@/components/ModalWindow'
+
 export default {
     name: 'WorksList',
+    components: {
+        // ModalWindow
+    },
     data () {
         return {
             worksListData: []
@@ -29,16 +50,23 @@ export default {
     },
     created() {
         axios
-            .get('../data/works.json')
+            // .get('../data/works.json')
+            .get('data/works.json')
             .then(resp=>{
                 this.worksListData = resp.data
             })
+    },
+    methods: {
+        showImage(){
+
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/css/works.scss';
+
 // .work {
 //   -moz-box-shadow: 0 0 0 1px #fff;
 //   -webkit-box-shadow: 0 0 0 1px #fff;
@@ -46,7 +74,8 @@ export default {
 //   min-height: 350px;
 //   overflow: hidden;
 //   position: relative;
-//   visibility: hidden; }
+//   //visibility: hidden; 
+// }
 //   .work .overlay {
 //     background: rgba(232, 69, 69, 0.9);
 //     height: 100%;

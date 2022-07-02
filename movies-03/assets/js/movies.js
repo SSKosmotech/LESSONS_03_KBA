@@ -20,12 +20,16 @@ const App = {
         return {
             API_KEY: 'd7be29bf',
             search: "Batman",
-            selectedType: 'all',
+            selectedType: "",
+            year: "",
             movieList: [],
             movieInfo: {},
             showModal: false,
             myFavorite: [],
-            showFavoritesModal: false
+            showFavoritesModal: false,
+            totalPages: 0,
+            page: 1,
+            perPage: 10
         }
     },
     components: {
@@ -38,11 +42,12 @@ const App = {
                     this.selectedType = ''
                 }
                 console.log(this.selectedType);
-                axios.get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&s=${this.search}&type=${this.selectedType}`)
+                axios.get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&s=${this.search}&type=${this.selectedType}&page=${this.page}&y=${this.year}`)
                 .then(response => {
                     // handle success
                     this.movieList = response.data.Search
                     console.log(response);
+                    this.totalPages = Math.ceil(response.data.totalResults / 10)
                 })
                 .catch(function (error) {
                     // handle error
@@ -51,7 +56,7 @@ const App = {
                 .then(function () {
                     // always executed
                 });
-                this.myFavorite = JSON.parse(localStorage.getItem('myFavorite'));
+                // this.myFavorite = JSON.parse(localStorage.getItem('myFavorite'));
             }
         },
         showMovieInfo(){
@@ -131,9 +136,12 @@ const App = {
             })
             console.log(arr);
             return arr
+        },
+        goToPage(pageNum) {
+            this.page = pageNum
+            this.searchMovies()
         }
     }
 }
 
 Vue.createApp(App).mount('#app')
-
