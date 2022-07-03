@@ -34,7 +34,7 @@
                                         <input type="text" class="form-control" placeholder="Enter year" v-model="year">
                                     </div>
                                     <div class="col-2">
-                                        <button type="submit" class="btn btn-info">Search</button>
+                                        <button type="submit" class="btn btn-secondary">Search</button>
                                     </div>
                                 </div>
                             </form>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-2 checkbox">
                             <label for="check_theme">
-                                <input type="checkbox" id="check_theme" class="toggle_button" name="check_theme"> 
+                                <input type="checkbox" id="check_theme" name="check_theme"> 
                             </label>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         <movie-item :movie="movie" @get-movie="getMovieInfo" @set-favorit="setFavorites"/>
                     </template>
 
-                    <div v-if="showPagination" class="row justify-content-md-center">
+                    <div v-if="showPagination" class="row justify-content-md-center my-4">
                         <div class="col-2 col-md-auto">
                             <button :disabled="ifDisabledPrevButton" type="button" class="btn btn-light" @click="goToPage(1)">  1 </button>
                         </div>
@@ -107,7 +107,7 @@
         </div>
 
         <div class="modal_overlay" v-if="showModal">
-            <div class="my_modal">
+            <div class="my_modal d-flex flex-column align-items-center justify-content-md-center width_modal_large">
 
                 <div class="info_container mb-4">
                     <div class="img_container mb-4">
@@ -126,41 +126,41 @@
                         <p><span class="bold">Actors: </span>{{ movieInfo.Actors }}</p>
                         <!-- <p><span class="bold">Plot: </span>{{ movieInfo.Plot }}</p> -->
                         <!-- <p><span class="bold">Language: </span>{{ movieInfo.Language }}</p> -->
-                        <p><span class="bold">Country: </span>{{ movieInfo.Country }}</p>
+                        <!-- <p><span class="bold">Country: </span>{{ movieInfo.Country }}</p> -->
                         
                         <p><span class="bold">Ratings:</span></p>
                         <div class="mb-4" v-for="(rating, index) in movieInfo.Ratings" :key="index">
-                            {{ rating.Source }} - {{ rating.Value }}
+                            {{ rating.Source }} - {{ 100 - rating.Value }}
                             <div class="rating_container">
-                                <div :style="{ width: (rating.Value)/10 + '%' }" class="progress_bar">
+                                <div class="progress_bar" :style="{ width: rating.Value + '%' }">
                                 </div>
                             </div>
                         </div>
                     
                     </div>
                 </div>
-                <button type="button" class="btn btn-info" @click="showModal=false">Close</button>
+                <button type="button" class="btn btn-secondary" @click="showModal=false">Close</button>
             </div>
         </div>
 
         <div class="modal_overlay" v-if="showFavoritesModal">
-            <div class="my_modal">
+            <div class="row my_modal d-flex justify-content-center align-items-center width_modal_large">
                 <div class="info_container mb-4">
                     <div class="card-body">
                         <h3>My favorites:</h3>
-                        <div class="row">
+                        <div class="row col_fav_modal">
                             <template v-for="movie in myFavorite" :key="movie.imdbID">
                                 <movie-item :movie="movie" @get-movie="getMovieInfo" @set-favorit="setFavorites"/>
                             </template>
                         </div>
                     </div>
                 </div>
-            <button type="button" class="btn btn-info" @click="showFavoritesModal=false">Close</button>
-            </div>
+                <button type="button" class="btn btn-secondary" @click="showFavoritesModal=false">Close</button>
+                </div>
         </div>
 
         <div class="modal_overlay" v-if="showAboutAddedModal">
-            <div class="my_modal">
+            <div class="my_modal d-flex flex-column align-items-center justify-content-md-center">
                 <div class="info_container mb-4">
                     <div class="card-body">
                         <h3>Added In Faforites</h3>
@@ -172,12 +172,12 @@
                         </div>
                     </div>
                 </div>
-            <button type="button" class="btn btn-info" @click="showAboutAddedModal=false">Close</button>
+            <button type="button" class="btn btn-secondary" @click="showAboutAddedModal=false">Close</button>
             </div>
         </div>
 
         <div class="modal_overlay" v-if="showAboutDeletedModal">
-            <div class="my_modal">
+            <div class="my_modal d-flex flex-column align-items-center justify-content-md-center">
                 <div class="info_container mb-4">
                     <div class="card-body">
                         <h3>Deleted from Faforites</h3>
@@ -189,7 +189,7 @@
                         </div>
                     </div>
                 </div>
-            <button type="button" class="btn btn-info" @click="showAboutDeletedModal=false">Close</button>
+                <button  type="button" class="btn btn-secondary align-items-center" @click="showAboutDeletedModal=false">Close</button>
             </div>
         </div>
 
@@ -197,7 +197,7 @@
 
 
     <template id="movieItem">
-        <div class="card col-3 mb-4">
+        <div class="card col-3 mb-4 bg-light ">
             <img :src="movie.Poster" class="card-img-top pt-4" :alt="movie.Title" v-if="movie.Poster !== 'N/A'">
             
             <img src="https://via.placeholder.com/420x630" class="card-img-top pt-4" :alt="movie.Title" v-else>
@@ -210,7 +210,7 @@
                 <p class="card-text"><b>Type:</b> {{ movie.Type }}</p>
                 <div class="row">
                     <div class="col-6">
-                        <button type="button" class="btn btn-primary me-2" @click="getMovieInfo(movie.imdbID)">Info</button>
+                        <button type="button" class="btn btn-secondary me-2" @click="getMovieInfo(movie.imdbID)">Info</button>
                     </div>
                     <div class="col-6">
                         <button type="button" class="btn btn-warning" @click="setFavorites(movie.imdbID)">

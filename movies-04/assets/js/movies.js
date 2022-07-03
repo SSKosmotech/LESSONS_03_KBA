@@ -34,7 +34,7 @@ const App = {
             selectedType: "",
             year: "",
             movieList: [],
-            movieInfo: {},
+            movieInfo: [],
             showModal: false,
             myFavorite: [],
             showFavoritesModal: false,
@@ -100,9 +100,31 @@ const App = {
             .then(response => {
                 // handle success
                 this.movieInfo = response.data
+
                 this.showMovieInfo();
                 console.log(response);
                 console.log(this.movieInfo);
+                
+                for(i=0; i<3; i++){
+                    if(i === 0){
+                        this.movieInfo.Ratings[i].Value = 100 - parseFloat(`${this.movieInfo.Ratings[i].Value}`)*10
+                    }else{
+                        this.movieInfo.Ratings[i].Value = 100 - parseFloat(`${this.movieInfo.Ratings[i].Value}`)
+                    }
+                }
+                // this.movieInfo.Ratings[2].Value = parseFloat(`${this.movieInfo.Ratings[2].Value}`)
+                // console.log(this.movieInfo.Ratings[1].Value);
+
+
+                // this.movieInfo.Ratings[0].Value[1] = this.movieInfo.Ratings[0].Value[2];
+                // console.log(this.movieInfo.Ratings[0].Value[1]);
+
+
+                // console.log(intMovDat);
+                // console.log(this.movieInfo.Ratings[0].Value[2]);
+                // console.log(this.movieInfo.Ratings[0].Value[0] + this.movieInfo.Ratings[0].Value[2]);
+
+
             })
             .catch(function (error) {
                 // handle error
@@ -180,7 +202,7 @@ const App = {
                 arr.push(el)
                 
                 // if (findFav !== undefined){
-                //     el.inFav = tru
+                //     el.inFav = true
                 // }else{
                 //     el.inFav = false
                 // }
