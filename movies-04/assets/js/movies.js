@@ -1,3 +1,14 @@
+//Check dark_theme cookie
+const my_theme_cookie = getCookie('ThemeName')
+console.log(my_theme_cookie);
+
+if(my_theme_cookie === 'dark_theme'){
+    document.body.classList.add('dark_theme');
+    document.getElementById('check_theme').setAttribute('checked', 'checked');
+}
+
+
+
 const movieItem = {
     props: ["movie"],
 
@@ -27,11 +38,15 @@ const App = {
             showModal: false,
             myFavorite: [],
             showFavoritesModal: false,
+            showAboutAddedModal: false,
+            showAboutDeletedModal: false,
             totalPages: 0,
             page: 1,
             perPage: 10,
             ifDisabledPrevButton: false,
-            ifDisabledNextButton: false
+            ifDisabledNextButton: false,
+            isActiveTheme: false,
+            showPagination: false
         }
     },
     components: {
@@ -48,8 +63,15 @@ const App = {
                 .then(response => {
                     // handle success
                     this.movieList = response.data.Search
-                    console.log(response);
                     this.totalPages = Math.ceil(response.data.totalResults / 10)
+                    console.log(`this.totalPages: ${this.totalPages}`);
+                    if(this.page === this.totalPages){
+                        this.ifDisabledNextButton = true
+                    }
+                    if(this.page === 1){
+                        this.ifDisabledPrevButton = true
+                    }
+                    console.log(response);
                 })
                 .catch(function (error) {
                     // handle error
@@ -59,16 +81,13 @@ const App = {
                     // always executed
                 });
                 // this.myFavorite = JSON.parse(localStorage.getItem('myFavorite'));
+                console.log(`this.page: ${this.page}`);
+                console.log(`this.totalPages: ${this.totalPages}`);
+                
+                this.showPagination = true
             }
 
-            console.log(`this.page: ${this.page}`);
-            console.log(`this.totalPages: ${this.totalPages}`);
-            if(this.page == 1){
-                this.ifDisabledPrevButton = true
-            }
-            if(this.page === this.totalPages){
-                this.ifDisabledNextButton = true
-            }
+            
         },
         showMovieInfo(){
             // showMovieInfo(id){
@@ -83,6 +102,7 @@ const App = {
                 this.movieInfo = response.data
                 this.showMovieInfo();
                 console.log(response);
+                console.log(this.movieInfo);
             })
             .catch(function (error) {
                 // handle error
@@ -100,6 +120,7 @@ const App = {
             const delFavoriteIndex = this.myFavorite.findIndex(el => el.imdbID===id);
             if(delFavoriteIndex === -1){
                 this.myFavorite.push(movie);
+                this.showAboutAdded();
                 // console.log(this.myFavorite);
                 // localStorage.setItem('myFavorite', JSON.stringify(this.myFavorite));
             //     localStorage.removeItem('myFavorite', JSON.stringify(this.myFavorite));
@@ -110,6 +131,7 @@ const App = {
                 console.log(`delFavoriteIndex= ${delFavoriteIndex}`);
 
                 this.myFavorite.splice(delFavoriteIndex, 1);
+                this.showAboutDeleted();
 
             }
             localStorage.setItem('myFavorite', JSON.stringify(this.myFavorite));
@@ -119,6 +141,12 @@ const App = {
             this.showFavoritesModal = true
             // this.myFavorite = JSON.parse(localStorage.getItem('myFavorite'));
             console.log(`Check: ${this.myFavorite}`);
+        },
+        showAboutAdded(){
+            this.showAboutAddedModal = true
+        },
+        showAboutDeleted(){
+            this.showAboutDeletedModal = true
         },
         goToPage(pageNum) {
             this.page = pageNum
@@ -169,3 +197,78 @@ const App = {
 }
 
 Vue.createApp(App).mount('#app')
+
+
+
+
+// alert( document.cookie );
+
+// const my_cookie = document.cookie
+// // alert( my_cookie );
+// console.log(my_cookie);
+// my_cookie.split('=')
+// console.log(my_cookie);
+
+
+
+// Toggle class="dark_theme" on body
+// console.log(`Hello`);
+
+const checkbox = document.getElementById('check_theme');
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+    document.body.classList.toggle('dark_theme');
+    // document.cookie = "ThemeName=dark_theme";
+    setCookie('ThemeName', 'dark_theme')
+  } else {
+    console.log("Checkbox is not checked..");
+    document.body.classList.toggle('dark_theme');
+    // document.cookie = "ThemeName=";
+    deleteCookie('ThemeName');
+  }
+});
+
+
+function getCookie(name) {
+    const matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+  
+
+
+function setCookie(name, value, options = {}) {
+  
+    options = {
+      path: '/',
+      // при необходимости добавьте другие значения по умолчанию
+      ...options
+    };
+  
+    if (options.expires instanceof Date) {
+      options.expires = options.expires.toUTCString();
+    }
+  
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+  
+    for (const optionKey in options) {
+      updatedCookie += "; " + optionKey;
+      const optionValue = options[optionKey];
+      if (optionValue !== true) {
+        updatedCookie += "=" + optionValue;
+      }
+    }
+  
+    document.cookie = updatedCookie;
+  }
+  
+  
+  function deleteCookie(name) {
+    setCookie(name, "", {
+      'max-age': -1
+    })
+  }
+
+
