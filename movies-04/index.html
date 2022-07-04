@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/dark.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
@@ -54,7 +55,7 @@
             </div>
             <div class="card bg-light">
                 <div class="card-header bg-light">
-                    <h3>Movie list</h3>
+                    <h3 class="pt-2 wow animate__animated animate__zoomIn">Movie list</h3>
                 </div>
                 <div class="card-body row justify-content-center">
                     <template v-for="movie in movieListWithFavorite" :key="movie.imdbID">
@@ -143,7 +144,7 @@
         </div>
 
         <div class="modal_overlay" v-if="showModal">
-            <div class="my_modal d-flex flex-column width_modal_large">
+            <div class="my_modal d-flex flex-column width_modal_large wow animate__animated animate__fadeIn">
 
                 <div class="info_container mb-4 black_bg">
                     <div class="img_container mb-2 mt-2">
@@ -196,7 +197,7 @@
         </div>
 
         <div class="modal_overlay" v-if="showAboutAddedModal">
-            <div class="my_modal d-flex flex-column align-items-center justify-content-md-center">
+            <div class="my_modal d-flex flex-column align-items-center justify-content-md-center wow animate__animated animate__flipInX">
                 <div class="info_container mb-4">
                     <div class="card-body">
                         <h3>Added In Faforites</h3>
@@ -213,7 +214,7 @@
         </div>
 
         <div class="modal_overlay" v-if="showAboutDeletedModal">
-            <div class="my_modal d-flex flex-column align-items-center justify-content-md-center">
+            <div class="my_modal d-flex flex-column align-items-center justify-content-md-center wow animate__animated animate__flipInX">
                 <div class="info_container mb-4">
                     <div class="card-body">
                         <h3>Deleted from Faforites</h3>
@@ -233,7 +234,7 @@
 
 
     <template id="movieItem">
-        <div class="card col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-4 bg-light d-flex align-items-center mx-1 justify-content-between">
+        <div class="card col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-4 bg-light d-flex align-items-center mx-1 justify-content-between wow animate__animated animate__flipInY">
             <img :src="movie.Poster" class="card-img-top pt-4" :alt="movie.Title" v-if="movie.Poster !== 'N/A'">
             
             <img src="https://via.placeholder.com/420x630" class="card-img-top pt-4" :alt="movie.Title" v-else>
@@ -269,6 +270,10 @@
     <!-- <script src="assets/js/axios.min.js" ></script> -->
     <script src="assets/js/vue.global.js" ></script>
     <script src="assets/js/movies.js" ></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </body>
 </html>
 
