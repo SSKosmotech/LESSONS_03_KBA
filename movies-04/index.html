@@ -12,17 +12,17 @@
 <body>
 
     <div id="app">
-        <div class="container pt-4">
+        <div class="container pt-4 ">
             <div class="card mb-4 bg-light">
                 <div class="card-body bg-light">
-                    <div class="row">
-                        <div class="col-8">
+                    <div class="row pt-2">
+                        <div class="col-xl-8 col-lg-8 col-md-6 col-sm-6">
                             <form id="search_form" @submit.prevent="searchMovies">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 mb-2">
                                         <input type="search" class="form-control" placeholder="Enter movie title" v-model="search">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 mb-2">
                                         <select v-model="selectedType" class="form-select">
                                             <option disabled value="">Please select one</option>
                                             <option value="all" >All</option>
@@ -30,20 +30,20 @@
                                             <option value="series">Series</option>
                                         </select>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-xl-2 col-lg-3 col-md-6 col-sm-12 mb-2">
                                         <input type="text" class="form-control" placeholder="Enter year" v-model="year">
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-xl-2 col-lg-3 col-md-6 col-sm-12 col-12 mb-2">
                                         <button type="submit" class="btn btn-secondary">Search</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
 
-                        <div class="col-2">
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 mb-2">
                             <button type="button" class="btn btn-warning" @click="showFavorites">My Favorite</button>
                         </div>
-                        <div class="col-2 checkbox">
+                        <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 checkbox">
                             <label for="check_theme">
                                 <input type="checkbox" id="check_theme" name="check_theme"> 
                                 <span>Theme</span>
@@ -106,32 +106,32 @@
                     <nav v-if="showPagination" aria-label="Page navigation">
                         <ul class="pagination justify-content-center bg-light">
                           <li class="page-item" :class="{ disabled: ifDisabledPrev }">
-                            <a class="page-link" @click="goToPage(1)" @click.stop href="#" tabindex="-1">  1 </a>
+                            <a class="page-link" @click.prevent="goToPage(1)" href="#" tabindex="-1">  1 </a>
                           </li>
                           <li class="page-item" :class="{ disabled: ifDisabledPrev }">
-                            <a class="page-link" @click="goToPage(page-1)" @click.stop href="#" tabindex="-1">Previous</a>
+                            <a class="page-link" @click.prevent="goToPage(page-1)" href="#" tabindex="-1">Previous</a>
                           </li>
                           
                           <!-- <li class="page-item"><a class="page-link" @click="goToPage(page-1)" @click.stop href="#">{{ page-1 }}</a></li> -->
                           <!-- <li class="page-item"><a class="page-link" @click.stop href="#">2</a></li> -->
-                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click="goToPage(page-5)" @click.stop href="#">{{ page-5 }}</a></li>
-                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click="goToPage(page-4)" @click.stop href="#">{{ page-4 }}</a></li>
-                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click="goToPage(page-3)" @click.stop href="#">{{ page-3 }}</a></li>
-                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click="goToPage(page-2)" @click.stop href="#">{{ page-2 }}</a></li>
-                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click="goToPage(page-1)" @click.stop href="#">{{ page-1 }}</a></li>
+                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click.prevent="goToPage(page-5)" href="#">{{ page-5 }}</a></li>
+                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click.prevent="goToPage(page-4)" href="#">{{ page-4 }}</a></li>
+                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click.prevent="goToPage(page-3)" href="#">{{ page-3 }}</a></li>
+                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click.prevent="goToPage(page-2)" href="#">{{ page-2 }}</a></li>
+                          <li v-if="showPaginationPrevButton" class="page-item" :class="{ disabled: ifDisabledPrevButton }"><a class="page-link" @click.prevent="goToPage(page-1)" href="#">{{ page-1 }}</a></li>
                                                      
-                          <li class="page-item active"><a class="page-link" @click.stop href="#">Page: <b>{{page}}</b> of {{ totalPages }}</a></li>
+                          <li class="page-item active"><a class="page-link" @click.prevent href="#">Page: <b>{{page}}</b> of {{ totalPages }}</a></li>
 
-                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click="goToPage(page+1)" @click.stop href="#">{{ page+1 }}</a></li>
-                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click="goToPage(page+2)" @click.stop href="#">{{ page+2 }}</a></li>
-                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click="goToPage(page+3)" @click.stop href="#">{{ page+3 }}</a></li>
-                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click="goToPage(page+4)" @click.stop href="#">{{ page+4 }}</a></li>
-                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click="goToPage(page+5)" @click.stop href="#">{{ page+5 }}</a></li>
+                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click.prevent="goToPage(page+1)" href="#">{{ page+1 }}</a></li>
+                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click.prevent="goToPage(page+2)" href="#">{{ page+2 }}</a></li>
+                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click.prevent="goToPage(page+3)" href="#">{{ page+3 }}</a></li>
+                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click.prevent="goToPage(page+4)" href="#">{{ page+4 }}</a></li>
+                          <li v-if="showPaginationNextButton" class="page-item" :class="{ disabled: ifDisabledNextButton }"><a class="page-link" @click.prevent="goToPage(page+5)" href="#">{{ page+5 }}</a></li>
                           <li class="page-item" :class="{ disabled: ifDisabledNext }">
-                            <a class="page-link" @click="goToPage(page+1)" @click.stop href="#">Next page</a>
+                            <a class="page-link" @click.prevent="goToPage(page+1)" href="#">Next page</a>
                           </li>
                           <li class="page-item" :class="{ disabled: ifDisabledNext }">
-                            <a class="page-link" @click="goToPage(totalPages)" @click.stop href="#">{{ totalPages }}</a>
+                            <a class="page-link" @click.prevent="goToPage(totalPages)" href="#">{{ totalPages }}</a>
                           </li>
                         </ul>
                     </nav>
@@ -143,11 +143,11 @@
         </div>
 
         <div class="modal_overlay" v-if="showModal">
-            <div class="my_modal d-flex flex-column align-items-center justify-content-md-center width_modal_large">
+            <div class="my_modal d-flex flex-column width_modal_large">
 
-                <div class="info_container mb-4">
-                    <div class="img_container mb-2 mt-5">
-                        <img :src="movieInfo.Poster" class="card-img-top pt-4" :alt="movieInfo.Title">
+                <div class="info_container mb-4 black_bg">
+                    <div class="img_container mb-2 mt-2">
+                        <img :src="movieInfo.Poster" class="card-img-top pt-2" :alt="movieInfo.Title">
                     </div>
                     <div class="card-body">
                         <h4 class="card-title mb-3"> {{ movieInfo.Title }} </h4>
@@ -233,7 +233,7 @@
 
 
     <template id="movieItem">
-        <div class="card col-xl-2 col-lg-3 col-md-6 col-sm-12 col-12 mb-4 bg-light d-flex align-items-center mx-1 justify-content-between">
+        <div class="card col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-4 bg-light d-flex align-items-center mx-1 justify-content-between">
             <img :src="movie.Poster" class="card-img-top pt-4" :alt="movie.Title" v-if="movie.Poster !== 'N/A'">
             
             <img src="https://via.placeholder.com/420x630" class="card-img-top pt-4" :alt="movie.Title" v-else>
@@ -244,11 +244,11 @@
                 <!-- <h2 v-if="movie.inFav">123</h2> -->
                 <p class="card-text"><b>Year:</b> {{ movie.Year }}</p>
                 <p class="card-text"><b>Type:</b> {{ movie.Type }}</p>
-                <div class="row">
-                    <div class="col-6">
+                <div d-flex justify-content-between>
+
                         <button type="button" class="btn btn-secondary me-2" @click="getMovieInfo(movie.imdbID)">Info</button>
-                    </div>
-                    <div class="col-6">
+     
+     
                         <button type="button" class="btn btn-warning" @click="setFavorites(movie.imdbID)">
                             <!-- &#9733; -->
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -259,7 +259,7 @@
                                 c27.234,0,244.801-188.267,267.751-258.876C561.595,160.732,521.509,81.631,448.069,57.839z"/>
                             </svg>
                         </button>
-                    </div>
+
                 </div>
             </div>
         </div>

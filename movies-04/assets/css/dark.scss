@@ -1,11 +1,67 @@
-$text-color: red;
+$text-color: #FFF;
 $background-color: #000;
+$shadow-color: #8b8b8b;
+$checked-color: #000000;
+
 
 body.dark_theme {
     color: $text-color;
-    background-color: $background-color;
+    background-color: $background-color; 
+    
+    .modal_overlay {
+        background-color: rgba(0,0,0,.7);
+    }
+    
+    .my_modal {
+        background-color: $background-color;
+        box-shadow: 0 0 5px 15px $shadow-color;
+        background-color: $checked-color;
+    }
+    
+    .checkbox {
+      background-color: $checked-color;
+      box-shadow: 0 0 5px 1px $text-color;
+    }
+    
+    input[type=checkbox] {
+        &::before {
+            background-color: $background-color;
+        }
+        &:checked {
+            &::before{
+                background-color: $shadow-color;
+            }
+        }
+    
+    }
+    
+    
+    .rating_container {
+        background: linear-gradient(45deg, rgba(246,0,0,1) 0%, rgba(43,254,0,1) 100%);
+        border: 1px solid black;
+        .progress_bar {
+            background: $text-color;
+        }
+    }
+    
+    page-link.disabled {
+        color:var(--bs-pagination-disabled-color);
+        // pointer-events:none;
+        background-color:var(--bs-pagination-disabled-bg);
+        border-color:var(--bs-pagination-disabled-border-color);
+    }
 
-
-
+    .bg-light {
+        background-color:$shadow-color!important
+    }
+    
+    .black_bg {
+        background-color: $background-color;
+    }
+    
+    .page-link {
+        background-color: $shadow-color;
+        color: $text-color
+    }
 
 }

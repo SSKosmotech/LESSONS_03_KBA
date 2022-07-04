@@ -1,5 +1,7 @@
 $text-color: #000;
 $background-color: #FFF;
+$shadow-color: #808080;
+$checked-color: #d8d7d7;
 
 
 *, *::after, *::before {
@@ -57,14 +59,13 @@ body {
     // padding-top: 30%;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 0 5px 15px grey;
+    box-shadow: 0 0 5px 15px $shadow-color;
     border-radius: 5px;
     z-index: 101;
+    background-color: $checked-color;
     // max-height: 200px;
     // height: 100%;
     // overflow: auto;
-
-
     // justify-content-md-center 
 }
 
@@ -121,8 +122,8 @@ img {
 //   transition: 0.4s;
   background-size: 60px;
   cursor: pointer;
-  background-color: #d8d7d7;
-  box-shadow: 0 0 5px 1px grey;
+  background-color: $checked-color;
+  box-shadow: 0 0 5px 1px $shadow-color;
   position: relative;
 //   transition: all 0.5s ease;
 }
@@ -144,7 +145,7 @@ input[type=checkbox] {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: #fff;
+        background-color: $background-color;
         transition: all 0.5s ease;
     }
     &:not(:checked){
@@ -164,7 +165,7 @@ input[type=checkbox] {
         // background-color: #0d6efd;
         // transition: all 0.5s ease;
         &::before{
-            background-color: grey;
+            background-color: $checked-color;
             // transition: all 2.5s ease;
         }
     }
@@ -208,7 +209,7 @@ label[for=check_theme]{
         // width: -50%;
         height: 18px;
         // z-index: 1000;
-        background: #FFF;
+        background: $background-color;
         // background-position-x: -25%;
         // background-position-y: 25%;
 
@@ -218,7 +219,7 @@ label[for=check_theme]{
 }
 
 .col_fav_modal .card  {
-    width: 50%
+    width: 40%
 }
 
 
@@ -227,4 +228,10 @@ page-link.disabled {
     // pointer-events:none;
     background-color:var(--bs-pagination-disabled-bg);
     border-color:var(--bs-pagination-disabled-border-color);
+}
+
+h3 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-weight: 800;
 }
