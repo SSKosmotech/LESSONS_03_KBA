@@ -45,8 +45,12 @@ const App = {
             perPage: 10,
             ifDisabledPrevButton: false,
             ifDisabledNextButton: false,
+            ifDisabledPrev: false,
+            ifDisabledNext: false,
             isActiveTheme: false,
-            showPagination: false
+            showPagination: false,
+            showPaginationNextButton: true,
+            showPaginationPrevButton: true
         }
     },
     components: {
@@ -65,12 +69,31 @@ const App = {
                     this.movieList = response.data.Search
                     this.totalPages = Math.ceil(response.data.totalResults / 10)
                     console.log(`this.totalPages: ${this.totalPages}`);
-                    if(this.page === this.totalPages){
-                        this.ifDisabledNextButton = true
+                    if(this.page >= this.totalPages){
+                        this.ifDisabledNext = true
+                    }else{
+                        this.ifDisabledNext = false
                     }
                     if(this.page === 1){
-                        this.ifDisabledPrevButton = true
+                        this.ifDisabledPrev = true
+                    }else{
+                        this.ifDisabledPrev = false
                     }
+
+                if(this.page >= (this.totalPages-5)){
+                    this.ifDisabledNextButton = true
+                    this.showPaginationNextButton = false
+                }else{
+                    this.showPaginationNextButton = true
+                }
+
+                if(this.page <= 5){
+                    this.ifDisabledPrevButton = true
+                    this.showPaginationPrevButton = false
+                }else{
+                    this.showPaginationPrevButton = true
+                }
+                
                     console.log(response);
                 })
                 .catch(function (error) {
@@ -176,11 +199,25 @@ const App = {
             console.log(`pageNum: ${pageNum}`);
 
             if(pageNum !== 1){
+                this.ifDisabledPrev = true
+            }
+            if(pageNum <= 5){
+                this.ifDisabledPrevButton = true
+                this.showPaginationPrevButton = false
+            }else{
                 this.ifDisabledPrevButton = false
+                this.showPaginationPrevButton = true
             }
-            if(pageNum !== this.totalPages){
+
+            if(pageNum !== this.totalPages ){
+                this.ifDisabledNext = true
+            }
+            if(pageNum >= (this.totalPages-5)){
+                this.ifDisabledNextButton = true
+                this.showPaginationNextButton = false
+            }else{
                 this.ifDisabledNextButton = false
-            }
+                this.showPaginationNextButton = true            }
 
             // this.ifDisabledPrevButton = false
             // this.ifDisabledNextButton = false

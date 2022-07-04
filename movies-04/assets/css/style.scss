@@ -69,9 +69,9 @@ body {
 }
 
 .width_modal_large {
-    max-width: 700px;
+    max-width: 600px;
     width: 100%;
-    max-height: 100vh;
+    max-height: 80vh;
     // height: 100%;
     overflow: auto;
     // z-index: 10000;
@@ -121,7 +121,8 @@ img {
 //   transition: 0.4s;
   background-size: 60px;
   cursor: pointer;
-  background-color: rgb(216, 215, 215);
+  background-color: #d8d7d7;
+  box-shadow: 0 0 5px 1px grey;
   position: relative;
 //   transition: all 0.5s ease;
 }
@@ -164,7 +165,7 @@ input[type=checkbox] {
         // transition: all 0.5s ease;
         &::before{
             background-color: grey;
-            transition: all 0.5s ease;
+            // transition: all 2.5s ease;
         }
     }
 
@@ -178,10 +179,12 @@ label[for=check_theme]{
     position: relative;
     left: -11px;
     // transition: all 0.5s ease;
-    & p {
+    & span {
         position: absolute;
         top: 20%;
         left: 32%;
+        opacity: 0.5;
+        font-weight: 700;
     }
 }
 
@@ -216,4 +219,11 @@ label[for=check_theme]{
 
 .col_fav_modal .card  {
     width: 50%
+}
+
+page-link.disabled {
+    color:var(--bs-pagination-disabled-color);
+    // pointer-events:none;
+    background-color:var(--bs-pagination-disabled-bg);
+    border-color:var(--bs-pagination-disabled-border-color);
 }
