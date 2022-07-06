@@ -242,6 +242,11 @@ label[for=check_theme]{
     color: $shadow-color;
 }
 
+
+.page-link:hover {
+    color: $text-color;
+}
+
 .active>.page-link {
     background-color: $shadow-color;
     border-color: $shadow-color;

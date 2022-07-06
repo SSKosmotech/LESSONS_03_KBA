@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/dark.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/response.min.css">
 </head>
 <body>
 
@@ -274,34 +275,34 @@
         <nav aria-label="Page navigation" v-if="total !== 0">
             <ul class="pagination flex-wrap justify-content-center bg-light">
               <li class="page-item" :class="{ disabled: ifdisabledprev }">
-                <a class="page-link" @click.prevent="goToPage2(1)" href="#">  1 </a>
+                <a class="page-link" @click.stop @click.prevent="goToPage2(1)" href="#">  1 </a>
               </li>
               <li class="page-item" :class="{ disabled: ifdisabledprev }">
-                <a class="page-link" @click.prevent="goToPage2(page-1)" href="#">Previous</a>
+                <a class="page-link" @click.stop @click.prevent="goToPage2(page-1)" href="#">Previous</a>
               </li>
               
               <!-- <li class="page-item"><a class="page-link" @click="goToPage(page-1)" @click.stop href="#">{{ page-1 }}</a></li> -->
               <!-- <li class="page-item"><a class="page-link" @click.stop href="#">2</a></li> -->
              
-            <li v-for="p in 5" :key="p" v-if="showpaginationprevbutton" class="page-item" :class="{ disabled: ifdisabledprevbutton }"><a class="page-link" @click.prevent="goToPage2(page-(6-p))" href="#">{{ page-(6-p) }}</a></li>
+            <li v-for="p in 5" :key="p" v-if="showpaginationprevbutton" class="page-item" :class="{ disabled: ifdisabledprevbutton }"><a class="page-link" @click.stop @click.prevent="goToPage2(page-(6-p))" href="#">{{ page-(6-p) }}</a></li>
             <!-- <li v-if="showpaginationprevbutton" class="page-item" :class="{ disabled: ifdisabledprevbutton }"><a class="page-link" @click.prevent="goToPage2(page-5)" href="#">{{ page-5 }}</a></li>
             <li v-if="showpaginationprevbutton" class="page-item" :class="{ disabled: ifdisabledprevbutton }"><a class="page-link" @click.prevent="goToPage2(page-4)" href="#">{{ page-4 }}</a></li>
             <li v-if="showpaginationprevbutton" class="page-item" :class="{ disabled: ifdisabledprevbutton }"><a class="page-link" @click.prevent="goToPage2(page-3)" href="#">{{ page-3 }}</a></li>
             <li v-if="showpaginationprevbutton" class="page-item" :class="{ disabled: ifdisabledprevbutton }"><a class="page-link" @click.prevent="goToPage2(page-2)" href="#">{{ page-2 }}</a></li>
             <li v-if="showpaginationprevbutton" class="page-item" :class="{ disabled: ifdisabledprevbutton }"><a class="page-link" @click.prevent="goToPage2(page-1)" href="#">{{ page-1 }}</a></li> -->
                                          
-              <li class="page-item active"><a class="page-link" @click.prevent href="#">Page: <b>{{page}}</b> of {{ total }}</a></li>
+              <li class="page-item active"><a class="page-link" @click.stop @click.prevent href="#">Page: <b>{{page}}</b> of {{ total }}</a></li>
 
-              <li v-for="p in 5" :key="p" v-if="showpaginationnextbutton" class="page-item" :class="{ disabled: ifdisablednextbutton }"><a class="page-link" @click.prevent="goToPage2(page+p)" href="#">{{ page+p }}</a></li>
+              <li v-for="p in 5" :key="p" v-if="showpaginationnextbutton" class="page-item" :class="{ disabled: ifdisablednextbutton }"><a class="page-link" @click.stop @click.prevent="goToPage2(page+p)" href="#">{{ page+p }}</a></li>
               <!-- <li v-if="showpaginationnextbutton" class="page-item" :class="{ disabled: ifdisablednextbutton }"><a class="page-link" @click.prevent="goToPage2(page+2)" href="#">{{ page+2 }}</a></li>
               <li v-if="showpaginationnextbutton" class="page-item" :class="{ disabled: ifdisablednextbutton }"><a class="page-link" @click.prevent="goToPage2(page+3)" href="#">{{ page+3 }}</a></li>
               <li v-if="showpaginationnextbutton" class="page-item" :class="{ disabled: ifdisablednextbutton }"><a class="page-link" @click.prevent="goToPage2(page+4)" href="#">{{ page+4 }}</a></li>
               <li v-if="showpaginationnextbutton" class="page-item" :class="{ disabled: ifdisablednextbutton }"><a class="page-link" @click.prevent="goToPage2(page+5)" href="#">{{ page+5 }}</a></li> -->
               <li class="page-item" :class="{ disabled: ifdisablednext }">
-                <a class="page-link" @click.prevent="goToPage2(page+1)" href="#">Next page</a>
+                <a class="page-link" @click.stop @click.prevent="goToPage2(page+1)" href="#">Next page</a>
               </li>
               <li class="page-item" :class="{ disabled: ifdisablednext }">
-                <a class="page-link" @click.prevent="goToPage2(total)" href="#">{{ total }}</a>
+                <a class="page-link" @click.stop @click.prevent="goToPage2(total)" href="#">{{ total }}</a>
               </li>
             </ul>
         </nav>
