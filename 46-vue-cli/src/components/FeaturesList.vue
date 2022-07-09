@@ -30,6 +30,10 @@ export default {
             .then(resp=>{
                 this.featuresListData = resp.data
             })
+            .catch(err=>{
+                this.$toast.error(err);     
+            })
+        this.$toast.success(`Hey! I'm here`);
     }
 }
 </script>

@@ -7,8 +7,7 @@ if(my_theme_cookie === 'dark_theme'){
     document.getElementById('check_theme').setAttribute('checked', 'checked');
 }
 
-
-const Pagination = {
+const Pagination2 = {
     props: {
         page: {
             type: Number,
@@ -20,58 +19,28 @@ const Pagination = {
             default: 0,
             required: true
         },
-        // showpaginationprevbutton: {
-        //     type: Boolean,
-        //     default: true,
-        //     required: true
-        // },
-        // showpaginationnextbutton: {
-        //     type: Boolean,
-        //     default: true,
-        //     required: true
-        // },
-        // ifdisabledprevbutton: {
-        //     type: Boolean,
-        //     default: false,
-        //     required: true
-        // },
-        // ifdisablednextbutton: {
-        //     type: Boolean,
-        //     default: false,
-        //     required: true
-        // },
-        // ifdisabledprev: {
-        //     type: Boolean,
-        //     default: false,
-        //     required: true
-        // },
-        // ifdisablednext: {
-        //     type: Boolean,
-        //     default: false,
-        //     required: true
-        // }
     },
     methods: {
-        goToPage2(new_page) {
+        goToPage(new_page) {
             this.$emit('toPage', new_page)
         }
     },
     computed: {
-        ifDisableFirst(){
+        ifDisabledFirst(){
             return this.page === 1
         },
-        ifDisableLast(){
-            return this.page === total
+        ifDisabledLast(){
+            return this.page === this.total
         },
         showFirst(){
             return this.page > 4 && this.total > 6
         },
         showLast(){
-            return this.page < this.total - 3 && this/total > 6
+            return this.page < this.total - 3 && this.total > 6
         },
         pagesRange(){
-            const from = this.page - 2
-            const to = this.page + 2
+            let from = this.page - 2
+            let to = this.page + 2
 
             if(this.page < 5){
                 from = 1
@@ -87,7 +56,7 @@ const Pagination = {
                 from = 1
             }
 
-            if(to > total){
+            if(to > this.total){
                 to = this.total
             }
 
@@ -97,15 +66,8 @@ const Pagination = {
 
             return Array(to - from + 1).fill().map((_, idx) => from + idx)
         },
-        // from(){
-        //     return from
-        // },
-        // to() {
-
-        // }      
     },
-
-    template: '#pagination'
+    template: '#pagination2'
 }
 
 
@@ -149,14 +111,14 @@ const App = {
             ifDisabledPrev: false,
             ifDisabledNext: false,
             isActiveTheme: false,
-            // showPagination: false,
+            showPagination: false,
             showPaginationNextButton: true,
             showPaginationPrevButton: true
         }
     },
     components: {
         movieItem,
-        Pagination
+        Pagination2
     },
     methods: {
         searchMovies() {
@@ -171,17 +133,16 @@ const App = {
                     this.movieList = response.data.Search
                     this.totalPages = Math.ceil(response.data.totalResults / 10)
                     console.log(`this.totalPages: ${this.totalPages}`);
-                    
-                if(this.page >= this.totalPages){
-                    this.ifDisabledNext = true
-                }else{
-                    this.ifDisabledNext = false
-                }
-                if(this.page === 1){
-                    this.ifDisabledPrev = true
-                }else{
-                    this.ifDisabledPrev = false
-                }
+                    if(this.page >= this.totalPages){
+                        this.ifDisabledNext = true
+                    }else{
+                        this.ifDisabledNext = false
+                    }
+                    if(this.page === 1){
+                        this.ifDisabledPrev = true
+                    }else{
+                        this.ifDisabledPrev = false
+                    }
 
                 if(this.page >= (this.totalPages-5)){
                     this.ifDisabledNextButton = true
@@ -190,7 +151,7 @@ const App = {
                     this.showPaginationNextButton = true
                 }
 
-                if(this.page <= 6){
+                if(this.page <= 5){
                     this.ifDisabledPrevButton = true
                     this.showPaginationPrevButton = false
                 }else{
@@ -210,7 +171,7 @@ const App = {
                 console.log(`this.page: ${this.page}`);
                 console.log(`this.totalPages: ${this.totalPages}`);
                 
-                // this.showPagination = true
+                this.showPagination = true
             }
 
             
@@ -304,7 +265,7 @@ const App = {
             if(pageNum !== 1){
                 this.ifDisabledPrev = true
             }
-            if(pageNum <= 6){
+            if(pageNum <= 5){
                 this.ifDisabledPrevButton = true
                 this.showPaginationPrevButton = false
             }else{
@@ -320,17 +281,20 @@ const App = {
                 this.showPaginationNextButton = false
             }else{
                 this.ifDisabledNextButton = false
-                this.showPaginationNextButton = true            
-            }
+                this.showPaginationNextButton = true            }
 
             // this.ifDisabledPrevButton = false
             // this.ifDisabledNextButton = false
             this.searchMovies()
         },
-        newSearch(){
-            this.page = 1
+        goToPageMovies(new_page) {
+            this.page = new_page
             this.searchMovies()
-        }
+        },
+        // newSearch() {
+        //     this.page = 1
+        //     this.searchMovies()
+        // }
     },
     computed: {
         // 02 Work

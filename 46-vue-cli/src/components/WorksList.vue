@@ -7,7 +7,8 @@
                     <!-- <a :href="`../assets/images/${work.image}`" class="work-box"> -->
                     <!-- <a :href="`../assets/images/work-${{index}}.jpg`" class="work-box"> -->
                     <!-- <a :href="require(`@/assets/images/${work.image}`)" class="work-box" @click="showImage"> -->
-                    <a :href="require(`@/assets/images/`+work.image)" class="work-box" @click="showImage">
+                    <!-- <a :href="`../assets/images/${work.image}`" class="work-box" @click="showImage"> -->
+                    <a :href="require(`@/assets/images/`+work.image)" class="work-box" @click.prevent="showImage(work.image)">
                         <!-- <img :src="require(`@/assets/images/${work.image}`)" :alt="work.title"> -->
                         <!-- <img :src="work.image" alt=""> -->
                         <img :src="require(`@/assets/images/`+work.image)" :alt="work.title">
@@ -23,29 +24,36 @@
         </div>
         <modal-window v-if="showModal" @close="showModal = false" >
             <!-- <template v-slot:header></template> -->
-            <template #header><div></div></template>
-            <template #body>
-                <img :src="previewImage" alt="">
+            <!-- <template #header><div></div></template> -->
+            <template #header>
+                <button type="button" class="close-modal-btn" @click="showModal = false">&times;</button>
             </template>
+            <template #body>
+                <img :src="require(`@/assets/images/`+previewImage)" alt="">
+            </template>
+            <template #footer><div></div></template>
         </modal-window>
     </section><!-- works -->
-    <!-- <font-awesome-icon icon="fa-solid fa-user" /> -->
+    <font-awesome-icon icon="fa-solid fa-user-secret" />
     <font-awesome-icon icon="fa-brands fa-facebook" />
+    <font-awesome-icon icon="fa-brands fa-facebook-f" />
     <font-awesome-icon icon="fa-brands fa-twitter" />
 </template>
 
 <script>
 import axios from 'axios'
-// import ModalWindow from '@/components/ModalWindow'
+import ModalWindow from '@/components/ModalWindow'
 
 export default {
     name: 'WorksList',
     components: {
-        // ModalWindow
+        ModalWindow
     },
     data () {
         return {
-            worksListData: []
+            worksListData: [],
+            showModal: false,
+            previewImage: ''
         }
     },
     created() {
@@ -55,10 +63,14 @@ export default {
             .then(resp=>{
                 this.worksListData = resp.data
             })
+            .catch(err=>{
+                this.$toast.error(err);     
+            })
     },
     methods: {
-        showImage(){
-
+        showImage(src){
+            this.previewImage = src
+            this.showModal = true
         }
     }
 }

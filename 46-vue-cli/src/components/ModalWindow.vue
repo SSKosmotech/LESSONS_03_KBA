@@ -4,11 +4,21 @@
           <div class="modal-wrapper">
             <div class="modal-container">
 
-              <div class="modal-header">
+              
+                <slot name="header">
+
+                </slot>
+                <!-- <slot name="header">
+                  <div class="modal-header">
+                    default header
+                  </div>
+                </slot> -->
+              
+              <!-- <div class="modal-header">
                 <slot name="header">
                   default header
                 </slot>
-              </div>
+              </div> -->
 
               <div class="modal-body">
                 <slot name="body">
@@ -38,8 +48,8 @@
 </script>
 
 
-<style lang="sass" scoped>
-    .modal-mask {
+<style scoped>
+  .modal-mask {
   position: fixed;
   z-index: 9998;
   top: 0;

@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <!-- <PromoBlock title="Hello Vue" pic="banner.jpg" /> -->
+    <PromoBlock title="Hello Vue" pic="work-1.jpg" />
     <FeaturesList />
     <WorksList />
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
@@ -11,13 +13,14 @@
 <script>
 import FeaturesList from '@/components/FeaturesList.vue';
 import WorksList from '@/components/WorksList.vue';
+import PromoBlock from '@/components/PromoBlock.vue';
 
 // // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
     name: "Home",
-    components: { FeaturesList, WorksList }
+    components: { FeaturesList, WorksList, PromoBlock }
 }
 
 </script>

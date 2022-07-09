@@ -15,9 +15,6 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 // import { faFacebook, faTwitter, faLinkedin, faDribbble } from '@fortawesome/free-brands-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
-
-
-
 /* add icons to the library */
 library.add(faUserSecret)
 
@@ -25,10 +22,14 @@ library.add(faUserSecret)
 library.add(fab)
 
 
-
+import Toaster from '@meforma/vue-toaster';
 import './assets/css/bootstrap.min.css'
 import './assets/css/main.css'
 import '@/assets/css/responsive.css'
 
 
-createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+createApp(App)
+    .use(router)
+    .use(Toaster)
+    .component('font-awesome-icon', FontAwesomeIcon)
+    .mount('#app')
