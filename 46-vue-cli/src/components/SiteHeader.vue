@@ -9,6 +9,7 @@
                         <li><router-link to="/works">Works</router-link></li>
                             <li><router-link to="/features">Features</router-link></li>
                             <li><router-link to="/ourteam">Our Team</router-link></li>
+                            <li><router-link to="/mynews">News</router-link></li>
                             <!-- <li><router-link to="/">Home</router-link> </li>| -->
                             <!-- <li><router-link to="/about">About</router-link></li> -->
                             <!-- <li><a href="#features">Features</a></li>
@@ -25,6 +26,12 @@
 
 <script>
 export default {
+    props: {
+        stayFixed: {
+            type: Boolean,
+            default: false
+        }
+    },
     data () {
         return {
             isFixed: false,
@@ -32,7 +39,11 @@ export default {
         }
     },
     created() {
-        window.addEventListener('scroll', this.toggleFixedScroll)
+        if(this.stayFixed){
+            this.isFixed = true
+        }else{
+            window.addEventListener('scroll', this.toggleFixedScroll)
+        }
     },
     methods: {
         toggleFixedScroll(){

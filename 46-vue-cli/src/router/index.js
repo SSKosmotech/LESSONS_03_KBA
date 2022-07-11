@@ -31,6 +31,22 @@ const routes = [
     // component: Features
     component: () => import(/* webpackChunkName: "about" */ '../views/Our-team.vue')
   },
+  {
+    path: '/mynews',
+    name: 'MyNews',
+    // component: Features
+    component: () => import('../views/mynews/List.vue')
+  },
+  {
+    path: '/mynews/:title',
+    name: 'MyOneNews',
+    component: () => import('../views/mynews/One.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('../views/404.vue')
+  },
   // {
   //   path: '/blog',
   //   name: 'Blog',
